@@ -1,2 +1,2 @@
 # niharatri.github.io
-My personal website
+Personal website
