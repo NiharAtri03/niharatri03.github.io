@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nihar Atri - Portfolio</title>
+  <title>💻 Nihar Atri - Portfolio</title>
 
   <!--
     - ionicon link
@@ -336,6 +336,14 @@ article.active {
   margin-bottom: 24px;
 }
 
+.profile-info .connect-text {
+  font-size: var(--fs-4);
+  color: var(--accent-color);
+  font-weight: var(--fw-500);
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
 .social-list {
   display: flex;
   gap: 16px;
@@ -403,29 +411,13 @@ article.active {
 .skills-title {
   font-size: var(--fs-2);
   font-weight: var(--fw-500);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   text-align: center;
 }
 
-.skill-category {
-  margin-bottom: 40px;
-}
-
-.skill-category-title {
-  font-size: var(--fs-3);
-  font-weight: var(--fw-500);
-  color: var(--text-primary);
-  margin-bottom: 20px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--accent-color);
-}
-
 .skills-list {
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
 }
 
 .skills-item {
@@ -458,20 +450,9 @@ article.active {
 
 .skill-progress-fill {
   height: 100%;
+  background: var(--accent-color);
   border-radius: 4px;
   transition: width 1s ease;
-}
-
-.skill-progress-fill.expert {
-  background: linear-gradient(90deg, #4CAF50, #45a049);
-}
-
-.skill-progress-fill.advanced {
-  background: linear-gradient(90deg, #2196F3, #1976D2);
-}
-
-.skill-progress-fill.intermediate {
-  background: linear-gradient(90deg, #FF9800, #F57C00);
 }
 
 /*-----------------------------------*\
@@ -1242,12 +1223,9 @@ textarea.form-input {
         <li class="navbar-item">
           <button class="navbar-link" data-nav-link>Education</button>
         </li>
-        <li class="navbar-item">
-          <button class="navbar-link" data-nav-link>Projects</button>
-        </li>
-        <li class="navbar-item">
-          <button class="navbar-link" data-nav-link>Contact</button>
-        </li>
+                  <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Projects</button>
+          </li>
       </ul>
       
       <!-- Theme Toggle -->
@@ -1284,7 +1262,8 @@ textarea.form-input {
           
           <div class="profile-info">
             <h1 class="name">Hi, I'm Nihar Atri!</h1>
-            <p class="title">Aspiring Data Scientist/Software Engineer!</p>            
+            <p class="title">Aspiring Data Scientist/Software Engineer!</p>
+            <p class="connect-text">Let's Connect</p>
             <!-- Social Links -->
             <ul class="social-list">
               <li class="social-item">
@@ -1315,7 +1294,10 @@ textarea.form-input {
               Hi! I'm an incoming Master's student at Carnegie Mellon University, focusing on Data Science and Machine Learning through the Computational Data Science (MCDS) program. I recently graduated from Purdue University with a triple major in Computer Science, Data Science, and Applied Statistics. I am most interested in using Statistics and Machine Learning to generate insight into difficult and interdisciplinary problems. My professional experience spans across very diverse domains (from finance to agriculture), which has given me a deep appreciation for how adaptable and impactful data science and machine learning can be when applied thoughtfully.
             </p>
             <p>
-              Last summer, I interned at a startup (Quantlink) where I built OLAP data pipelines and trained quarterly stock prediction models for investors. Before that, I worked as a data science intern at John Deere, building predictive models for machine failure, and a software engineer intern at Delta Airlines, where I developed an AWS-based content management platform for marketing teams. At Purdue, I worked as an undergraduate researcher through several programs (DUIRI, VIP, and The Data Mine), exploring the intersection of data science with medicine and political science, as well as conducting research in generative computer vision. I also enjoyed working as a Teaching Assistant for various courses, including Systems Programming, Data Engineering in Python, and Introduction to Data Science.
+              Last summer, I interned at a startup (Quantlink) where I built OLAP data pipelines and trained quarterly stock prediction models for investors. Before that, I worked as a data science intern at John Deere, building predictive models for machine failure, and a software engineer intern at Delta Airlines, where I developed an AWS-based content management platform for marketing teams.
+            </p>
+            <p>
+              At Purdue, I worked as an undergraduate researcher through several programs (DUIRI, VIP, and The Data Mine), exploring the intersection of data science with medicine and political science, as well as conducting research in generative computer vision. I also enjoyed working as a Teaching Assistant for various courses, including Systems Programming, Data Engineering in Python, and Introduction to Data Science.
             </p>
             <p>
               Besides my professional interests, I enjoy playing volleyball, tennis, piano, and drinking boba! 
@@ -1323,19 +1305,16 @@ textarea.form-input {
             </div>
 
           <!-- Skills Section -->
-          <section class="skills">
-            <h3 class="skills-title">Technical Skills</h3>
-            
-            <!-- Expert Level (100%) -->
-            <div class="skill-category">
-              <h4 class="skill-category-title">Expert Level</h4>
+                      <section class="skills">
+              <h3 class="skills-title">Technical Skills</h3>
               <ul class="skills-list">
+                <!-- 100% Skilled -->
                 <li class="skills-item">
                   <div class="skill-header">
                     <h5>Python</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                    <div class="skill-progress-fill" style="width: 100%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1343,7 +1322,7 @@ textarea.form-input {
                     <h5>SQL</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                    <div class="skill-progress-fill" style="width: 100%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1351,7 +1330,7 @@ textarea.form-input {
                     <h5>R</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                    <div class="skill-progress-fill" style="width: 100%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1359,7 +1338,7 @@ textarea.form-input {
                     <h5>Pandas</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                    <div class="skill-progress-fill" style="width: 100%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1367,7 +1346,7 @@ textarea.form-input {
                     <h5>Java</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                    <div class="skill-progress-fill" style="width: 100%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1375,22 +1354,17 @@ textarea.form-input {
                     <h5>Scikit-learn</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                    <div class="skill-progress-fill" style="width: 100%;"></div>
                   </div>
                 </li>
-              </ul>
-            </div>
-
-            <!-- Advanced Level (85%) -->
-            <div class="skill-category">
-              <h4 class="skill-category-title">Advanced Level</h4>
-              <ul class="skills-list">
+                
+                <!-- 85% Skilled -->
                 <li class="skills-item">
                   <div class="skill-header">
                     <h5>PySpark</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1398,7 +1372,7 @@ textarea.form-input {
                     <h5>C</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1406,7 +1380,7 @@ textarea.form-input {
                     <h5>TypeScript</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1414,7 +1388,7 @@ textarea.form-input {
                     <h5>NumPy</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1422,21 +1396,23 @@ textarea.form-input {
                     <h5>PyTorch</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
                   <div class="skill-header">
                     <h5>AWS</h5>
                   </div>
-                  <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
+                  </div>
                 </li>
                 <li class="skills-item">
                   <div class="skill-header">
                     <h5>Machine Learning</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1444,7 +1420,7 @@ textarea.form-input {
                     <h5>Statistical Analysis</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1452,22 +1428,17 @@ textarea.form-input {
                     <h5>Data Visualization</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                    <div class="skill-progress-fill" style="width: 85%;"></div>
                   </div>
                 </li>
-              </ul>
-            </div>
-
-            <!-- Intermediate Level (75%) -->
-            <div class="skill-category">
-              <h4 class="skill-category-title">Intermediate Level</h4>
-              <ul class="skills-list">
+                
+                <!-- 75% Skilled -->
                 <li class="skills-item">
                   <div class="skill-header">
                     <h5>C++</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                    <div class="skill-progress-fill" style="width: 75%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1475,7 +1446,7 @@ textarea.form-input {
                     <h5>Dagster</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                    <div class="skill-progress-fill" style="width: 75%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1483,7 +1454,7 @@ textarea.form-input {
                     <h5>dbt</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                    <div class="skill-progress-fill" style="width: 75%;"></div>
                   </div>
                 </li>
                 <li class="skills-item">
@@ -1491,12 +1462,11 @@ textarea.form-input {
                     <h5>Shell Scripting</h5>
                   </div>
                   <div class="skill-progress-bg">
-                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                    <div class="skill-progress-fill" style="width: 75%;"></div>
                   </div>
                 </li>
               </ul>
-            </div>
-          </section>
+            </section>
         </div>
         
       </div>
@@ -1845,7 +1815,7 @@ textarea.form-input {
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/gpt-project-pic.png" alt="My GPT" loading="lazy">
+                  <img src="./assets/images/gpt-project.pic" alt="My GPT" loading="lazy">
                 </figure>
                 <h3 class="project-title">My GPT</h3>
               </a>
