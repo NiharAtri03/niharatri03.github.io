@@ -715,6 +715,226 @@ article.active {
 }
 
 /*-----------------------------------*\
+  #PROJECT MODAL
+\*-----------------------------------*/
+
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-2);
+}
+
+.project-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform var(--transition-2);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.project-modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-1);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+.modal-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-body {
+  padding: 40px;
+}
+
+.modal-title {
+  font-size: var(--fs-1);
+  font-weight: var(--fw-600);
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.modal-description {
+  font-size: var(--fs-5);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.modal-technologies {
+  margin-bottom: 30px;
+}
+
+.modal-technologies h4 {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  padding: 6px 12px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: var(--fs-7);
+  color: var(--text-secondary);
+  font-weight: var(--fw-400);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 8px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  transition: all var(--transition-1);
+}
+
+.github-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(100, 181, 246, 0.3);
+}
+
+.github-btn ion-icon {
+  font-size: 18px;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .modal-body {
+    padding: 30px 20px;
+  }
+  
+  .modal-image {
+    height: 200px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .github-btn {
+    justify-content: center;
+  }
+}
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.footer {
+  background: var(--secondary-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.copyright {
+  font-size: var(--fs-6);
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.made-with {
+  font-size: var(--fs-6);
+  color: var(--text-secondary);
+}
+
+.made-with a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color var(--transition-1);
+}
+
+.made-with a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Footer responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 0;
+    margin-top: 60px;
+  }
+}
+
+/*-----------------------------------*\
   #HOBBIES
 \*-----------------------------------*/
 
@@ -1444,6 +1664,17 @@ textarea.form-input {
                 <h3 class="project-title">HIV/AIDS Life Expectancy Analysis</h3>
               </a>
             </li>
+            <li class="project-item">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/project-6.png" alt="My GPT" loading="lazy">
+                </figure>
+                <h3 class="project-title">My GPT</h3>
+              </a>
+            </li>
           </ul>
 
         </section>
@@ -1451,6 +1682,36 @@ textarea.form-input {
       </div>
 
     </article>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="project-modal">
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        
+        <img id="modal-image" class="modal-image" src="" alt="Project Image">
+        
+        <div class="modal-body">
+          <h2 id="modal-title" class="modal-title">Project Title</h2>
+          <p id="modal-description" class="modal-description">Project description will be displayed here.</p>
+          
+          <div class="modal-technologies">
+            <h4>Technologies & Tools</h4>
+            <div id="tech-tags" class="tech-tags">
+              <!-- Technology tags will be inserted here -->
+            </div>
+          </div>
+          
+          <div class="modal-actions">
+            <a href="#" id="github-link" class="github-btn" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!--
       - #HOBBIES
@@ -1833,6 +2094,107 @@ document.addEventListener('keydown', function(e) {
 });
 
 console.log('Portfolio initialized successfully! Theme:', currentTheme);
+
+// Project Modal Functionality
+const projectModal = document.getElementById('project-modal');
+const modalClose = document.getElementById('modal-close');
+const projectItems = document.querySelectorAll('.project-item');
+
+// Project data
+const projectData = {
+  'Amazon Recommendation Engine': {
+    description: 'Built a recommendation system that recommends products to Amazon customers based on their review history.',
+    technologies: ['Python', 'Pandas', 'Scikit-learn', 'NumPy', 'Seaborn', 'LightFM'],
+    github: 'https://github.com/NiharAtri03/Amazon-Product-Recommendation-System'
+  },
+  'NFL Injury Predictor': {
+    description: 'Built a machine learning model that predicts NFL player injury severity based on historical data, player statistics, and game conditions.',
+    technologies: ['Python', 'Pandas', 'Numpy', 'Scikit-learn', 'Seaborn'],
+    github: 'https://github.com/NiharAtri03/NFL-Injury-Analysis'
+  },
+  'Eventura': {
+    description: 'Developed a event management platform where users can buy/sell tickets for nearby events.',
+    technologies: ['Python', 'SQLAlchemy', 'SQLite', 'Streamlit'],
+    github: 'https://github.com/NiharAtri03/Eventura'
+  },
+  'Shell Project': {
+    description: 'Built a Linux Shell replica that handles basic Shell functionality (commands, subshells, background processing, signal handling, wildcarding).',
+    technologies: ['C', 'C++', 'Flex (lexer)', 'Bison (parser)', 'Linux'],
+    github: 'https://github.com/NiharAtri03/Custom_Linux_Shell'
+  },
+  'HIV/AIDS Life Expectancy Analysis': {
+    description: 'Analyzed the statistical relationship between HIV/AIDS and life expectancy.',
+    technologies: ['R'],
+    github: 'https://docs.google.com/presentation/d/1HreWP0Z-ZPmHmlTcjcmTvY_vENw6M6Agfcdsa2x1iT8/edit?usp=sharing'
+  },
+  'Text Summarizer': {
+    description: 'Built a text summarizer that uses natural language processing to generate concise and coheren summaries.',
+    technologies: ['Python', 'Pandas', 'spaCy', 'NLTK', 'Streamlit'],
+  },
+  'My GPT': {
+    description: 'Implemented a basic transformer architecture (based on GPT) from scratch to create a chatbot.',
+    technologies: ['Python', 'PyTorch', 'tiktoken (tokenizer)]'],
+    github: 'https://github.com/NiharAtri03/my_gpt'
+  }
+};
+
+// Function to open modal
+function openProjectModal(projectTitle, imageSrc) {
+  const project = projectData[projectTitle];
+  if (project) {
+    // Set modal content
+    document.getElementById('modal-title').textContent = projectTitle;
+    document.getElementById('modal-description').textContent = project.description;
+    document.getElementById('modal-image').src = imageSrc;
+    document.getElementById('modal-image').alt = projectTitle;
+    document.getElementById('github-link').href = project.github;
+    
+    // Create technology tags
+    const techTagsContainer = document.getElementById('tech-tags');
+    techTagsContainer.innerHTML = '';
+    project.technologies.forEach(tech => {
+      const tag = document.createElement('span');
+      tag.className = 'tech-tag';
+      tag.textContent = tech;
+      techTagsContainer.appendChild(tag);
+    });
+    
+    // Show modal
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+// Function to close modal
+function closeProjectModal() {
+  projectModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Add click event listeners to project items
+projectItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const projectTitle = item.querySelector('.project-title').textContent;
+    const imageSrc = item.querySelector('img').src;
+    openProjectModal(projectTitle, imageSrc);
+  });
+});
+
+// Close modal events
+modalClose.addEventListener('click', closeProjectModal);
+
+projectModal.addEventListener('click', (e) => {
+  if (e.target === projectModal) {
+    closeProjectModal();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+    closeProjectModal();
+  }
+});
   </script>
 
   <!--
