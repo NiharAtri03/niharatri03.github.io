@@ -416,8 +416,11 @@ article.active {
 }
 
 .skills-list {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
 }
 
 .skills-item {
@@ -442,10 +445,11 @@ article.active {
 }
 
 .skill-progress-bg {
-  height: 8px;
+  height: 6px;
   background: var(--secondary-bg);
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
+  max-width: 200px;
 }
 
 .skill-progress-fill {
@@ -1173,6 +1177,15 @@ textarea.form-input {
   
   .hobbies-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .skills-list {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  
+  .skill-progress-bg {
+    max-width: 150px;
   }
   
   .timeline-item-header {
@@ -2275,7 +2288,7 @@ const projectData = {
   },
   'My GPT': {
     description: 'Implemented a basic transformer architecture (based on GPT) from scratch to create a chatbot.',
-    technologies: ['Python', 'PyTorch', 'tiktoken (tokenizer)]'],
+    technologies: ['Python', 'PyTorch', 'Tiktoken (tokenizer)'],
     github: 'https://github.com/NiharAtri03/my_gpt'
   }
 };
