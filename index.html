@@ -893,7 +893,7 @@ article.active {
 .footer {
   background: var(--secondary-bg);
   border-top: 1px solid var(--border-color);
-  padding: 40px 0;
+  padding: 20px 0;
   margin-top: 80px;
 }
 
@@ -929,7 +929,7 @@ article.active {
 /* Footer responsive */
 @media (max-width: 768px) {
   .footer {
-    padding: 30px 0;
+    padding: 15px 0;
     margin-top: 60px;
   }
 }
@@ -1298,29 +1298,64 @@ textarea.form-input {
           <!-- Skills Section -->
           <section class="skills">
             <h3 class="skills-title">Technical Skills</h3>
-            <div class="skills-grid">
-              <div class="skill-card">
-                <h5>Machine Learning</h5>
-              </div>
-              <div class="skill-card">
-                <h5>Statistical Analysis</h5>
-              </div>
-              <div class="skill-card">
-                <h5>Data Engineering</h5>
-              </div>
-              <div class="skill-card">
-                <h5>Python Programming</h5>
-              </div>
-              <div class="skill-card">
-                <h5>Java Programming</h5>
-              </div>
-              <div class="skill-card">
-                <h5>Systems Programming</h5>
-              </div>
-              <div class="skill-card">
-                <h5>Full-Stack Development</h5>
-              </div>
-            </div>
+            <ul class="skills-list">
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Machine Learning</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 90%;"></div>
+                </div>
+              </li>
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Statistical Analysis</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 85%;"></div>
+                </div>
+              </li>
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Data Engineering</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 88%;"></div>
+                </div>
+              </li>
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Python Programming</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 95%;"></div>
+                </div>
+              </li>
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Java Programming</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 80%;"></div>
+                </div>
+              </li>
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Systems Programming</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 85%;"></div>
+                </div>
+              </li>
+              <li class="skills-item">
+                <div class="skill-header">
+                  <h5>Full-Stack Development</h5>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 82%;"></div>
+                </div>
+              </li>
+            </ul>
           </section>
         </div>
         
@@ -1670,7 +1705,7 @@ textarea.form-input {
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/project-6.png" alt="My GPT" loading="lazy">
+                  <img src="./assets/images/gpt-project.pic" alt="My GPT" loading="lazy">
                 </figure>
                 <h3 class="project-title">My GPT</h3>
               </a>
@@ -1840,9 +1875,6 @@ textarea.form-input {
   <footer class="footer">
     <div class="footer-content">
       <p class="copyright">© 2024 All rights reserved</p>
-      <p class="made-with">
-        Made with <a href="https://github.com/codewithsadee/vcard-personal-portfolio" target="_blank" rel="noopener noreferrer">vCard</a>
-      </p>
     </div>
   </footer>
 
