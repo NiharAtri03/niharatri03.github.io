@@ -403,13 +403,29 @@ article.active {
 .skills-title {
   font-size: var(--fs-2);
   font-weight: var(--fw-500);
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
+.skill-category {
+  margin-bottom: 40px;
+}
+
+.skill-category-title {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-500);
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
 .skills-list {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .skills-item {
@@ -442,9 +458,20 @@ article.active {
 
 .skill-progress-fill {
   height: 100%;
-  background: var(--accent-color);
   border-radius: 4px;
   transition: width 1s ease;
+}
+
+.skill-progress-fill.expert {
+  background: linear-gradient(90deg, #4CAF50, #45a049);
+}
+
+.skill-progress-fill.advanced {
+  background: linear-gradient(90deg, #2196F3, #1976D2);
+}
+
+.skill-progress-fill.intermediate {
+  background: linear-gradient(90deg, #FF9800, #F57C00);
 }
 
 /*-----------------------------------*\
@@ -1298,64 +1325,177 @@ textarea.form-input {
           <!-- Skills Section -->
           <section class="skills">
             <h3 class="skills-title">Technical Skills</h3>
-            <ul class="skills-list">
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Machine Learning</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 90%;"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Statistical Analysis</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 85%;"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Data Engineering</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 88%;"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Python Programming</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 95%;"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Java Programming</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 80%;"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Systems Programming</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 85%;"></div>
-                </div>
-              </li>
-              <li class="skills-item">
-                <div class="skill-header">
-                  <h5>Full-Stack Development</h5>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 82%;"></div>
-                </div>
-              </li>
-            </ul>
+            
+            <!-- Expert Level (100%) -->
+            <div class="skill-category">
+              <h4 class="skill-category-title">Expert Level</h4>
+              <ul class="skills-list">
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Python</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>SQL</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>R</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Pandas</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Java</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Scikit-learn</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill expert" style="width: 100%;"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Advanced Level (85%) -->
+            <div class="skill-category">
+              <h4 class="skill-category-title">Advanced Level</h4>
+              <ul class="skills-list">
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>PySpark</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>C</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>TypeScript</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>NumPy</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>PyTorch</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>AWS</h5>
+                  </div>
+                  <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Machine Learning</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Statistical Analysis</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Data Visualization</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill advanced" style="width: 85%;"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Intermediate Level (75%) -->
+            <div class="skill-category">
+              <h4 class="skill-category-title">Intermediate Level</h4>
+              <ul class="skills-list">
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>C++</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Dagster</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>dbt</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                  </div>
+                </li>
+                <li class="skills-item">
+                  <div class="skill-header">
+                    <h5>Shell Scripting</h5>
+                  </div>
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill intermediate" style="width: 75%;"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </div>
         
@@ -1705,7 +1845,7 @@ textarea.form-input {
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-                  <img src="./assets/images/gpt-project.pic" alt="My GPT" loading="lazy">
+                  <img src="./assets/images/gpt-project-pic.png" alt="My GPT" loading="lazy">
                 </figure>
                 <h3 class="project-title">My GPT</h3>
               </a>
