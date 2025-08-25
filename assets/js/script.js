@@ -50,7 +50,7 @@ themeToggle.addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const typewriterElement = document.getElementById('typewriter-text');
   if (typewriterElement) {
-    typeWriter(typewriterElement, "Hi, I'm Nihar Atri!", 150); // Much slower typing speed
+    typeWriter(typewriterElement, "Hi, I'm Nihar Atri!", 250); // Even slower typing speed
   }
 });
 
@@ -82,26 +82,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
-
-// Handle table of contents anchor links with smooth scrolling
-document.addEventListener('DOMContentLoaded', function() {
-  const tocLinks = document.querySelectorAll('.toc-link');
-  tocLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      
-      if (targetElement) {
-        // Smooth scroll to target with navbar offset
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-});
 
 // Portfolio filter functionality
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
@@ -211,7 +191,7 @@ const observer = new IntersectionObserver(function(entries) {
 // Progressive loading animation function
 function animatePageContent(page) {
   // Reset all elements to initial state
-  const allElements = page.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .toc-container');
+  const allElements = page.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .experience-nav-sidebar');
   allElements.forEach((element, index) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
@@ -246,7 +226,7 @@ function animatePageContent(page) {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
   // Initially hide all content elements
-  const allContentElements = document.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .toc-container');
+  const allContentElements = document.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .experience-nav-sidebar');
   allContentElements.forEach((element) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
@@ -335,6 +315,63 @@ document.addEventListener('keydown', function(e) {
     navigationLinks[activeNavIndex + 1].click();
   } else if (e.key === 'ArrowLeft' && activeNavIndex > 0) {
     navigationLinks[activeNavIndex - 1].click();
+  }
+});
+
+// Experience Navigation Functionality
+const experienceNavLinks = document.querySelectorAll('.experience-nav-link');
+
+experienceNavLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Remove active class from all links
+    experienceNavLinks.forEach(l => l.classList.remove('active'));
+    
+    // Add active class to clicked link
+    this.classList.add('active');
+    
+    // Get target section
+    const targetId = this.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      // Smooth scroll to section
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Update active nav link based on scroll position
+function updateExperienceNav() {
+  const sections = document.querySelectorAll('#professional-experience, #extracurricular-experience, #teaching-experience');
+  const navLinks = document.querySelectorAll('.experience-nav-link');
+  
+  let currentSection = '';
+  
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 100 && rect.bottom >= 100) {
+      currentSection = section.id;
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Add scroll event listener for experience page
+document.addEventListener('scroll', function() {
+  const experiencePage = document.querySelector('[data-page="experience"]');
+  if (experiencePage && experiencePage.classList.contains('active')) {
+    updateExperienceNav();
   }
 });
 
