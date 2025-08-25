@@ -190,26 +190,43 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Progressive loading animation function
 function animatePageContent(page) {
+  // Get all elements to animate
+  const skillsItems = page.querySelectorAll('.skills-item');
+  const timelineItems = page.querySelectorAll('.timeline-item');
+  const hobbyCards = page.querySelectorAll('.hobby-card');
+  const projectItems = page.querySelectorAll('.project-item');
+  const courseworkCategories = page.querySelectorAll('.coursework-category');
+  const profileSection = page.querySelector('.profile-section');
+  const aboutContent = page.querySelector('.about-content');
+  const experienceNavSidebar = page.querySelector('.experience-nav-sidebar');
+  
   // Reset all elements to initial state
-  const allElements = page.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .experience-nav-sidebar');
-  allElements.forEach((element, index) => {
+  const allElements = [...skillsItems, ...timelineItems, ...hobbyCards, ...projectItems, ...courseworkCategories, profileSection, aboutContent, experienceNavSidebar].filter(Boolean);
+  allElements.forEach((element) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
     element.style.transition = 'none';
   });
   
-  // Animate elements progressively
-  allElements.forEach((element, index) => {
-    setTimeout(() => {
+  // Animate ALL elements simultaneously after a brief delay
+  setTimeout(() => {
+    allElements.forEach((element) => {
       element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
       element.style.opacity = '1';
       element.style.transform = 'translateY(0)';
-    }, index * 500); // 500ms delay between each element
-  });
+    });
+    
+    // Also animate experience nav sidebar if it exists
+    if (experienceNavSidebar) {
+      experienceNavSidebar.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      experienceNavSidebar.style.opacity = '1';
+      experienceNavSidebar.style.transform = 'translateX(0)';
+    }
+  }, 200);
   
-  // Special handling for skill bars
+  // Special handling for skill bars - animate after all content appears
   const skillsSection = page.querySelector('.skills-list');
-  if (skillsSection) {
+  if (skillsSection && skillsItems.length > 0) {
     setTimeout(() => {
       const skillBars = skillsSection.querySelectorAll('.skill-progress-fill');
       skillBars.forEach((bar, index) => {
@@ -217,9 +234,9 @@ function animatePageContent(page) {
         bar.style.width = '0';
         setTimeout(() => {
           bar.style.width = width;
-        }, 300 + (index * 100));
+        }, 100 + (index * 50)); // Faster skill bar animation
       });
-    }, allElements.length * 150 + 200);
+    }, 1000); // Start after all content has appeared
   }
 }
 
@@ -240,6 +257,15 @@ document.addEventListener('DOMContentLoaded', function() {
       animatePageContent(activePage);
     }, 500); // Start animation after typewriter effect begins
   }
+  
+  // Ensure experience nav sidebar is properly positioned
+  const experienceSidebar = document.querySelector('.experience-nav-sidebar');
+  if (experienceSidebar) {
+    experienceSidebar.style.top = '120px';
+  }
+  
+  // Remove the old individual element animations since they're now handled by animatePageContent
+  // The hobby cards and project items will be animated by the new function
   
   // Animate skill bars when they come into view
   const skillsSection = document.querySelector('.skills-list');
@@ -263,28 +289,8 @@ document.addEventListener('DOMContentLoaded', function() {
     skillObserver.observe(skillsSection);
   }
   
-  // Animate hobby cards
-  const hobbyCards = document.querySelectorAll('.hobby-card');
-  hobbyCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
-  });
-  
-  // Animate project items
-  const projectItems = document.querySelectorAll('.project-item');
-  projectItems.forEach((item, index) => {
-    if (item.classList.contains('active')) {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        item.style.opacity = '1';
-        item.style.transform = 'translateY(0)';
-      }, index * 100);
-    }
-  });
+  // Note: Hobby cards and project items are now animated by animatePageContent function
+  // when their respective pages become active
 });
 
 // Add hover effect to social links
