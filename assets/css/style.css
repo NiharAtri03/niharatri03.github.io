@@ -473,7 +473,8 @@ article.active {
 .experience-nav-sidebar {
   position: fixed;
   left: 40px;
-  top: 120px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-20px);
   z-index: 100;
   background: var(--primary-bg);
   border-radius: 16px;
@@ -482,7 +483,6 @@ article.active {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   opacity: 0;
-  transform: translateX(-20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -551,7 +551,8 @@ article.active {
 @media (max-width: 1200px) {
   .experience-nav-sidebar {
     left: 20px;
-    top: 120px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-20px);
     padding: 20px 12px;
   }
   
