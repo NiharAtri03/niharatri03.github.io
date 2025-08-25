@@ -73,10 +73,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
         this.classList.add("active");
         window.scrollTo(0, 0);
         
-        // Trigger progressive loading animation for the active page
-        setTimeout(() => {
-          animatePageContent(pages[j]);
-        }, 100);
+
         break;
       }
     }
@@ -173,136 +170,17 @@ if (form) {
   });
 }
 
-// Animate elements on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
 
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, observerOptions);
 
-// Progressive loading animation function
-function animatePageContent(page) {
-  // Get all elements to animate
-  const skillsItems = page.querySelectorAll('.skills-item');
-  const timelineItems = page.querySelectorAll('.timeline-item');
-  const hobbyCards = page.querySelectorAll('.hobby-card');
-  const projectItems = page.querySelectorAll('.project-item');
-  const courseworkCategories = page.querySelectorAll('.coursework-category');
-  const profileSection = page.querySelector('.profile-section');
-  const aboutContent = page.querySelector('.about-content');
-  const experienceNavSidebar = page.querySelector('.experience-nav-sidebar');
-  
-  // Check if this page has already been animated (to avoid flash effect)
-  const hasBeenAnimated = page.dataset.animated === 'true';
-  
-  if (!hasBeenAnimated) {
-    // First time visiting this page - reset all elements to initial state
-    const allElements = [...skillsItems, ...timelineItems, ...hobbyCards, ...projectItems, ...courseworkCategories, profileSection, aboutContent, experienceNavSidebar].filter(Boolean);
-    allElements.forEach((element) => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(30px)';
-      element.style.transition = 'none';
-    });
-    
-    // Mark page as animated
-    page.dataset.animated = 'true';
-  }
-  
-  // Animate ALL elements simultaneously after a brief delay
-  setTimeout(() => {
-    const allElements = [...skillsItems, ...timelineItems, ...hobbyCards, ...projectItems, ...courseworkCategories, profileSection, aboutContent, experienceNavSidebar].filter(Boolean);
-    allElements.forEach((element) => {
-      element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      element.style.opacity = '1';
-      element.style.transform = 'translateY(0)';
-    });
-    
-    // Also animate experience nav sidebar if it exists
-    if (experienceNavSidebar) {
-      experienceNavSidebar.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      experienceNavSidebar.style.opacity = '1';
-      experienceNavSidebar.style.transform = 'translateX(0)';
-    }
-  }, 100);
-  
-  // Special handling for skill bars - animate after all content has appeared
-  const skillsSection = page.querySelector('.skills-list');
-  if (skillsSection && skillsItems.length > 0) {
-    setTimeout(() => {
-      const skillBars = skillsSection.querySelectorAll('.skill-progress-fill');
-      skillBars.forEach((bar, index) => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100 + (index * 50)); // Faster skill bar animation
-      });
-    }, 900); // Start after all content has appeared (100ms + 800ms animation duration)
-  }
-}
 
-// Observe elements for animation
+
+// Ensure experience nav sidebar is properly positioned
 document.addEventListener('DOMContentLoaded', function() {
-  // Initially hide all content elements
-  const allContentElements = document.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .experience-nav-sidebar');
-  allContentElements.forEach((element) => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'none';
-  });
-  
-  // Animate the initially active page (About Me)
-  const activePage = document.querySelector('[data-page].active');
-  if (activePage) {
-    // Mark the initial page as animated
-    activePage.dataset.animated = 'true';
-    setTimeout(() => {
-      animatePageContent(activePage);
-    }, 500); // Start animation after typewriter effect begins
-  }
-  
-  // Ensure experience nav sidebar is properly positioned
   const experienceSidebar = document.querySelector('.experience-nav-sidebar');
   if (experienceSidebar) {
     experienceSidebar.style.top = '50%';
-    experienceSidebar.style.transform = 'translateY(-50%) translateX(-20px)';
+    experienceSidebar.style.transform = 'translateY(-50%)';
   }
-  
-  // Remove the old individual element animations since they're now handled by animatePageContent
-  // The hobby cards and project items will be animated by the new function
-  
-  // Animate skill bars when they come into view
-  const skillsSection = document.querySelector('.skills-list');
-  if (skillsSection) {
-    const skillObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const skillBars = entry.target.querySelectorAll('.skill-progress-fill');
-          skillBars.forEach((bar, index) => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-              bar.style.width = width;
-            }, 200 + (index * 100));
-          });
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    
-    skillObserver.observe(skillsSection);
-  }
-  
-  // Note: Hobby cards and project items are now animated by animatePageContent function
-  // when their respective pages become active
 });
 
 // Add hover effect to social links
