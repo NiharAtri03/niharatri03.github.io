@@ -604,6 +604,55 @@ article.active {
   font-size: 16px;
 }
 
+/* Coursework Section Styling */
+.coursework-section {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--secondary-bg);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-color);
+}
+
+.coursework-title {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-underline-offset: 4px;
+}
+
+.coursework-note {
+  font-size: var(--fs-7);
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.coursework-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.coursework-list li {
+  font-size: var(--fs-6);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.coursework-list li:last-child {
+  border-bottom: none;
+}
+
+.coursework-list strong {
+  color: var(--text-primary);
+  font-weight: var(--fw-500);
+}
+
 .expandable-content {
   max-height: 0;
   overflow: hidden;
@@ -1615,7 +1664,7 @@ textarea.form-input {
     <article class="education" data-page="education">
 
       <div class="page-container">
-        <h2 class="page-title">Education & Certifications</h2>
+        <h2 class="page-title">Education</h2>
 
         <section class="timeline-section">
           <ol class="timeline-list">
@@ -1630,27 +1679,17 @@ textarea.form-input {
                 </div>
                 <span class="timeline-date">2025 — 2026</span>
               </div>
-              <p class="timeline-text">
-                Specialized in Machine Learning
-              </p>
-              <div class="expandable-content" id="edu-1">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>GPA: 4.00</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('edu-1', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
+                              <p class="timeline-text">
+                  Specialized in Machine Learning<br>
+                  GPA: 4.00
+                </p>
+=
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Bachelors of Science in Computer Science, Data Science, and Applied Statistics</h4>
+                  <h4 class="timeline-item-title">Bachelors of Science in CS, DS, and Applied Statistics</h4>
                   <p class="timeline-company">
                     <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
                     Purdue University
@@ -1658,33 +1697,23 @@ textarea.form-input {
                 </div>
                 <span class="timeline-date">2021 — 2025</span>
               </div>
-              <p class="timeline-text">
-                Specialized in Machine Intelligence
-              </p>
-              <div class="expandable-content" id="edu-2">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>GPA: 3.86</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="ribbon-outline"></ion-icon>
-                    <span>Research Organizations: DUIRI, VIP, The Data Mine</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="bulb-outline"></ion-icon>
-                    <span>Teaching Assistant: CS 252 (Systems Programming), CS 242 (Introduction to Data Science), CS 176 (Data Engineering)</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Extracurriculars: BoilerMake Executive Committee, ML @ Purdue, LaunchPad Mentor</span>
-                  </div>
-                </div>
+                              <p class="timeline-text">
+                  Tripled majored in Computer Science, Data Science, and Applied Statistics, specialized in Machine Intelligence<br>
+                  GPA: 3.86
+                </p>
+     
+              
+              <!-- Relevant Coursework Section -->
+              <div class="coursework-section">
+                <h5 class="coursework-title">Relevant Coursework</h5>
+                <p class="coursework-note"><em>Starred classes (*) indicate graduate courses</em></p>
+                <ul class="coursework-list">
+                  <li><strong>Machine Learning & AI:</strong> *Machine Learning, *Artificial Intelligence, *Natural Language Processing, *Data Mining</li>
+                  <li><strong>Computer Science:</strong> *Compiling and Programming Systems, *Algorithm Design and Analysis, Operating Systems, Software Engineering</li>
+                  <li><strong>Data Science:</strong> *Data Security and Privacy, *Security Analytics, Introduction to Relational Database Systems, Data Engineering</li>
+                  <li><strong>Mathematics & Statistics:</strong> *Algorithmic Economics, Cryptography, Introduction to Analysis of Algorithms, Statistical Methods</li>
+                </ul>
               </div>
-              <button class="expand-btn" onclick="toggleExpand('edu-2', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
 
