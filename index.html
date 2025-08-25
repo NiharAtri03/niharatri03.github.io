@@ -281,28 +281,35 @@
       <div class="page-container">
         <h2 class="page-title">Experience</h2>
         
-        <!-- Table of Contents -->
-        <div class="toc-container">
-          <h3 class="toc-title">Quick Navigation</h3>
-          <div class="toc-links">
-            <a href="#professional-experience" class="toc-link">
-              <ion-icon name="briefcase-outline"></ion-icon>
-              <span>Professional Experience</span>
-            </a>
-            <a href="#extracurricular-experience" class="toc-link">
-              <ion-icon name="people-outline"></ion-icon>
-              <span>Extracurricular Experience</span>
-            </a>
-            <a href="#teaching-experience" class="toc-link">
-              <ion-icon name="school-outline"></ion-icon>
-              <span>Teaching Experience</span>
-            </a>
-          </div>
+        <!-- Experience Navigation Sidebar -->
+        <div class="experience-nav-sidebar">
+          <nav class="experience-nav">
+            <ul class="experience-nav-list">
+              <li class="experience-nav-item">
+                <a href="#professional-experience" class="experience-nav-link active" data-section="professional">
+                  <ion-icon name="briefcase-outline"></ion-icon>
+                  <span>Professional</span>
+                </a>
+              </li>
+              <li class="experience-nav-item">
+                <a href="#extracurricular-experience" class="experience-nav-link" data-section="extracurricular">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span>Extracurricular</span>
+                </a>
+              </li>
+              <li class="experience-nav-item">
+                <a href="#teaching-experience" class="experience-nav-link" data-section="teaching">
+                  <ion-icon name="school-outline"></ion-icon>
+                  <span>Teaching</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        
-        <h3 class="section-subtitle" id="professional-experience" style="text-align: center;">Professional Experience</h3>
 
-        <section class="timeline-section">
+        <h3 class="section-subtitle" style="text-align: center;">Professional Experience</h3>
+
+        <section id="professional-experience" class="timeline-section">
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
@@ -413,8 +420,8 @@
         </section>
 
         <!-- Extracurriculars Experience Section -->
-        <section class="timeline-section" style="margin-top: 80px;">
-          <h3 class="section-subtitle" id="extracurricular-experience">Extracurricular Experience</h3>
+        <section id="extracurricular-experience" class="timeline-section" style="margin-top: 80px;">
+          <h3 class="section-subtitle">Extracurricular Experience</h3>
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
@@ -468,8 +475,8 @@
         </section>
 
         <!-- Teaching Experience Section -->
-        <section class="timeline-section" style="margin-top: 80px;">
-          <h3 class="section-subtitle" id="teaching-experience">Teaching Experience</h3>
+        <section id="teaching-experience" class="timeline-section" style="margin-top: 80px;">
+          <h3 class="section-subtitle">Teaching Experience</h3>
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
