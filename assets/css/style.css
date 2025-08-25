@@ -263,9 +263,6 @@ article.active {
   gap: 60px;
   margin-bottom: 60px;
   padding: 20px 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .avatar-box {
@@ -354,9 +351,6 @@ article.active {
 .about-content {
   max-width: 900px;
   margin-top: 20px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .section-title {
@@ -411,9 +405,6 @@ article.active {
 
 .skills-item {
   margin-bottom: 24px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .skill-header {
@@ -474,7 +465,7 @@ article.active {
   position: fixed;
   left: 40px;
   top: 50%;
-  transform: translateY(-50%) translateX(-20px);
+  transform: translateY(-50%);
   z-index: 100;
   background: var(--primary-bg);
   border-radius: 16px;
@@ -482,8 +473,6 @@ article.active {
   border: 1px solid var(--border-color);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .experience-nav-list {
@@ -552,7 +541,7 @@ article.active {
   .experience-nav-sidebar {
     left: 20px;
     top: 50%;
-    transform: translateY(-50%) translateX(-20px);
+    transform: translateY(-50%);
     padding: 20px 12px;
   }
   
@@ -807,9 +796,6 @@ article.active {
   padding: 24px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .category-title {
@@ -905,9 +891,6 @@ article.active {
   border: 1px solid var(--border-color);
   transition: all var(--transition-1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease, all var(--transition-1);
 }
 
 .timeline-item:hover {
@@ -1106,9 +1089,6 @@ article.active {
 
 .project-item {
   display: block;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 @keyframes scaleUp {
@@ -1413,9 +1393,6 @@ article.active {
   text-align: center;
   transition: all var(--transition-1);
   border: 1px solid var(--border-color);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease, all var(--transition-1);
 }
 
 .hobby-card:hover {
