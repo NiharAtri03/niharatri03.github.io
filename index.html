@@ -657,7 +657,7 @@ article.active {
 .coursework-section-standalone {
   margin-top: 60px;
   padding: 40px;
-  background: var(--secondary-bg);
+  background: var(--primary-bg);
   border-radius: 16px;
   border-left: 6px solid var(--accent-color);
 }
@@ -681,12 +681,12 @@ article.active {
 
 .coursework-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 }
 
 .coursework-category {
-  background: var(--primary-bg);
+  background: var(--secondary-bg);
   padding: 24px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -1629,126 +1629,104 @@ textarea.form-input {
     <article class="experience" data-page="experience">
 
       <div class="page-container">
-        <h2 class="page-title">Professional Experience</h2>
+        <h3 class="section-subtitle">Professional Experience</h3>
 
         <section class="timeline-section">
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Senior Web Developer</h4>
-                  <p class="timeline-company">Tech Company</p>
+                  <h4 class="timeline-item-title">Data Science Intern</h4>
+                  <p class="timeline-company">Quantlink</p>
                 </div>
-                <span class="timeline-date">2022 — Present</span>
+                <span class="timeline-date">Summer 2024</span>
               </div>
               <p class="timeline-text">
-                Leading front-end development initiatives and architecting scalable web applications. Responsible for implementing modern UI/UX designs and optimizing application performance across multiple platforms.
+                • Designed core data pipelines with Dagster (orchestration/validation), dbt (transformation), and ClickHouse database to process 60M+ stock data points, enabling scalable data analysis
+                • Trained Gradient Boosting, Random Forest, and SARIMA models with Scikit-learn and statsmodels to predict quarterly trends in stock prices; achieved 86% accuracy on backtesting data
               </p>
-              <div class="expandable-content" id="exp-1">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Team Size: 8 developers</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="code-slash-outline"></ion-icon>
-                    <span>Tech Stack: React, Node.js, MongoDB</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="trophy-outline"></ion-icon>
-                    <span>Key Achievement: 40% performance boost</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="location-outline"></ion-icon>
-                    <span>Location: Sacramento, CA</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('exp-1', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Creative Director</h4>
-                  <p class="timeline-company">Digital Agency</p>
+                  <h4 class="timeline-item-title">Data Science Intern</h4>
+                  <p class="timeline-company">John Deere</p>
                 </div>
-                <span class="timeline-date">2020 — 2022</span>
+                <span class="timeline-date">Summer 2023</span>
               </div>
               <p class="timeline-text">
-                Oversaw creative direction for major brand campaigns and digital experiences. Managed cross-functional teams to deliver innovative solutions for Fortune 500 clients.
+                • Built predictive models for machine failure using sensor data and historical maintenance records
+                • Implemented machine learning algorithms to optimize equipment performance and reduce downtime
+                • Collaborated with engineering teams to deploy models in production environments
               </p>
-              <div class="expandable-content" id="exp-2">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Team Size: 15 creatives</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="briefcase-outline"></ion-icon>
-                    <span>Client Portfolio: 20+ Fortune 500</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="trophy-outline"></ion-icon>
-                    <span>Awards: 3 Webby nominations</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="trending-up-outline"></ion-icon>
-                    <span>Revenue Impact: $2M+ in new business</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('exp-2', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Art Director</h4>
-                  <p class="timeline-company">Creative Studio</p>
+                  <h4 class="timeline-item-title">Software Engineer Intern</h4>
+                  <p class="timeline-company">Delta Airlines</p>
                 </div>
-                <span class="timeline-date">2018 — 2020</span>
+                <span class="timeline-date">Summer 2022</span>
               </div>
               <p class="timeline-text">
-                Developed visual identities and brand guidelines for emerging startups and established companies. Specialized in creating cohesive design systems across digital and print media.
+                • Developed an AWS-based content management platform for marketing teams
+                • Built RESTful APIs and implemented cloud infrastructure using AWS services
+                • Collaborated with cross-functional teams to deliver user-friendly solutions
               </p>
-              <div class="expandable-content" id="exp-3">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Team Size: 6 designers</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="palette-outline"></ion-icon>
-                    <span>Projects: 50+ brand identities</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="star-outline"></ion-icon>
-                    <span>Client Satisfaction: 98% retention</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span>Avg. Project Timeline: 6-8 weeks</span>
-                  </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-item-header">
+                <div>
+                  <h4 class="timeline-item-title">Undergraduate Researcher</h4>
+                  <p class="timeline-company">The Data Mine - Purdue University</p>
                 </div>
+                <span class="timeline-date">2023 — 2024</span>
               </div>
-              <button class="expand-btn" onclick="toggleExpand('exp-3', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
+              <p class="timeline-text">
+                • Conducted research in generative computer vision and machine learning applications
+                • Developed algorithms for image processing and pattern recognition
+                • Published findings in undergraduate research symposiums
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-item-header">
+                <div>
+                  <h4 class="timeline-item-title">Research Assistant</h4>
+                  <p class="timeline-company">DUIRI Program - Purdue University</p>
+                </div>
+                <span class="timeline-date">2022 — 2023</span>
+              </div>
+              <p class="timeline-text">
+                • Explored intersection of data science with medicine and political science
+                • Developed statistical models for healthcare data analysis
+                • Presented research findings at university research showcases
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-item-header">
+                <div>
+                  <h4 class="timeline-item-title">VIP Research Team Member</h4>
+                  <p class="timeline-company">Vertically Integrated Projects - Purdue University</p>
+                </div>
+                <span class="timeline-date">2021 — 2023</span>
+              </div>
+              <p class="timeline-text">
+                • Participated in multidisciplinary research projects combining computer science and data analysis
+                • Developed software tools for research data collection and analysis
+                • Collaborated with faculty and graduate students on cutting-edge research initiatives
+              </p>
             </li>
           </ol>
         </section>
 
         <!-- Extracurriculars Experience Section -->
         <section class="timeline-section">
-          <h3 class="section-subtitle">Extracurriculars Experience</h3>
+          <h3 class="section-subtitle">Extracurricular Experience</h3>
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
@@ -1761,30 +1739,6 @@ textarea.form-input {
               <p class="timeline-text">
                 Led Purdue's largest hackathon event with 500+ participants. Managed logistics, sponsorship relations, and technical workshops for students interested in software development and innovation.
               </p>
-              <div class="expandable-content" id="extracurricular-1">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Event Size: 500+ participants</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="trophy-outline"></ion-icon>
-                    <span>Role: Executive Committee Member</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span>Duration: 2 years</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="bulb-outline"></ion-icon>
-                    <span>Focus: Hackathon Organization & Leadership</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('extracurricular-1', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
             <li class="timeline-item">
@@ -1798,30 +1752,6 @@ textarea.form-input {
               <p class="timeline-text">
                 Active member of Purdue's machine learning community. Participated in research discussions, technical workshops, and collaborative projects focused on cutting-edge ML applications.
               </p>
-              <div class="expandable-content" id="extracurricular-2">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Role: Active Member</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="bulb-outline"></ion-icon>
-                    <span>Focus: ML Research & Applications</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span>Duration: 3 years</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>Activities: Workshops, Research Discussions</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('extracurricular-2', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
             <li class="timeline-item">
@@ -1835,30 +1765,6 @@ textarea.form-input {
               <p class="timeline-text">
                 Mentored student entrepreneurs in developing business ideas and technical solutions. Provided guidance on market research, product development, and startup strategies.
               </p>
-              <div class="expandable-content" id="extracurricular-3">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Role: Student Mentor</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="bulb-outline"></ion-icon>
-                    <span>Focus: Entrepreneurship & Innovation</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span>Duration: 1 year</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="trophy-outline"></ion-icon>
-                    <span>Impact: Mentored 5+ student teams</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('extracurricular-3', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
           </ol>
         </section>
@@ -1878,30 +1784,6 @@ textarea.form-input {
               <p class="timeline-text">
                 Assisted in teaching systems programming concepts including C/C++, memory management, and operating system principles. Led lab sessions and provided one-on-one support to students.
               </p>
-              <div class="expandable-content" id="teaching-1">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Class Size: 80+ students</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="code-slash-outline"></ion-icon>
-                    <span>Topics: C/C++, Memory Management, OS Principles</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span>Duration: 1 year</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>Role: Lab Instructor & Student Support</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('teaching-1', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
             <li class="timeline-item">
@@ -1915,30 +1797,6 @@ textarea.form-input {
               <p class="timeline-text">
                 Supported instruction in data science fundamentals including Python programming, statistical analysis, and data visualization techniques. Helped students with programming assignments and projects.
               </p>
-              <div class="expandable-content" id="teaching-2">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Class Size: 60+ students</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="code-slash-outline"></ion-icon>
-                    <span>Topics: Python, Statistics, Data Visualization</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span>Duration: 1 year</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>Role: Programming Support & Project Guidance</span>
-                  </div>
-                </div>
-              </div>
-              <button class="expand-btn" onclick="toggleExpand('teaching-2', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
             </li>
 
             <li class="timeline-item">
@@ -1952,30 +1810,19 @@ textarea.form-input {
               <p class="timeline-text">
                 Assisted in teaching data engineering concepts including database design, ETL processes, and big data technologies. Supported students in building data pipelines and working with real-world datasets.
               </p>
-              <div class="expandable-content" id="teaching-3">
-                <div class="timeline-details">
-                  <div class="detail-item">
-                    <ion-icon name="people-outline"></ion-icon>
-                    <span>Class Size: 45+ students</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="code-slash-outline"></ion-icon>
-                    <span>Topics: Database Design, ETL, Big Data</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    <span>Duration: 1 year</span>
-                  </div>
-                  <div class="detail-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>Role: Technical Support & Project Guidance</span>
-                  </div>
+            </li>
+
+            <li class="timeline-item">
+              <div class="timeline-item-header">
+                <div>
+                  <h4 class="timeline-item-title">Teaching Assistant - The Data Mine</h4>
+                  <p class="timeline-company">TDM 101 - Purdue University</p>
                 </div>
+                <span class="timeline-date">2023 — 2024</span>
               </div>
-              <button class="expand-btn" onclick="toggleExpand('teaching-3', this)">
-                <span>Show Details</span>
-                <ion-icon name="chevron-down-outline"></ion-icon>
-              </button>
+              <p class="timeline-text">
+                Supported instruction in data science fundamentals and research methodologies. Helped students develop data analysis skills and work on real-world research projects through The Data Mine program.
+              </p>
             </li>
           </ol>
         </section>
@@ -2037,7 +1884,7 @@ textarea.form-input {
           <p class="coursework-note-standalone"><em>Starred classes (*) indicate graduate courses</em></p>
           <div class="coursework-categories">
             <div class="coursework-category">
-              <h4 class="category-title">Machine Learning:</h4>
+              <h4 class="category-title">Machine Learning</h4>
               <ul class="course-list">
                 <li>*Introduction To Machine Learning</li>
                 <li>*Natural Language Processing</li>
@@ -2048,7 +1895,7 @@ textarea.form-input {
             </div>
             
             <div class="coursework-category">
-              <h4 class="category-title">Computer Science:</h4>
+              <h4 class="category-title">Computer Science</h4>
               <ul class="course-list">
                 <li>Analysis of Algorithms</li>
                 <li>Data Structures</li>
@@ -2060,7 +1907,7 @@ textarea.form-input {
             </div>
             
             <div class="coursework-category">
-              <h4 class="category-title">Data Science & Statistics:</h4>
+              <h4 class="category-title">Data Science & Statistics</h4>
               <ul class="course-list">
                 <li>*Foundations of Data Science</li>
                 <li>Large Scale Data Analytics</li>
@@ -2072,7 +1919,7 @@ textarea.form-input {
             </div>
             
             <div class="coursework-category">
-              <h4 class="category-title">Mathematics:</h4>
+              <h4 class="category-title">Mathematics</h4>
               <ul class="course-list">
                 <li>Linear Algebra</li>
                 <li>Multivariate Calculus</li>
