@@ -1,28 +1,57 @@
 'use strict';
 
+// Typewriter Effect
+function typeWriter(element, text, speed = 100) {
+  let i = 0;
+  element.innerHTML = '';
+  
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      // Add blinking cursor after typing is complete
+      element.innerHTML += '<span class="typewriter-cursor"></span>';
+    }
+  }
+  
+  type();
+}
+
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Check for saved theme preference or default to dark mode
-const currentTheme = localStorage.getItem('theme') || 'dark';
-if (currentTheme === 'light') {
-  body.classList.add('light-mode');
+// Check for saved theme preference or default to light mode
+let currentTheme = 'light';
+try {
+  // Use a simple variable instead of localStorage
+  if (body.classList.contains('dark-mode')) {
+    currentTheme = 'dark';
+  }
+} catch (e) {
+  // Fallback if storage isn't available
+  currentTheme = 'light';
 }
 
 // Theme toggle event listener
 themeToggle.addEventListener('click', function() {
-  body.classList.toggle('light-mode');
-  
-  // Save theme preference
-  const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
-  localStorage.setItem('theme', theme);
+  body.classList.toggle('dark-mode');
   
   // Add animation effect
   this.style.transform = 'scale(0.95)';
   setTimeout(() => {
     this.style.transform = 'scale(1)';
   }, 200);
+});
+
+// Initialize typewriter effect when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  const typewriterElement = document.getElementById('typewriter-text');
+  if (typewriterElement) {
+    typeWriter(typewriterElement, "Hi, I'm Nihar Atri!", 80);
+  }
 });
 
 // Page navigation
@@ -78,6 +107,23 @@ for (let i = 0; i < filterBtn.length; i++) {
     this.classList.add("active");
     lastClickedBtn = this;
   });
+}
+
+// Expand/Collapse functionality for timeline items
+function toggleExpand(contentId, button) {
+  const content = document.getElementById(contentId);
+  const icon = button.querySelector('ion-icon');
+  const text = button.querySelector('span');
+  
+  if (content.classList.contains('expanded')) {
+    content.classList.remove('expanded');
+    button.classList.remove('expanded');
+    text.textContent = 'Show Details';
+  } else {
+    content.classList.add('expanded');
+    button.classList.add('expanded');
+    text.textContent = 'Hide Details';
+  }
 }
 
 // Contact form functionality
@@ -139,13 +185,12 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
-  // Animate timeline items
+  // Make all timeline items visible immediately
   const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach((item, index) => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(item);
+  timelineItems.forEach((item) => {
+    item.style.opacity = '1';
+    item.style.transform = 'translateY(0)';
+    item.style.transition = 'none';
   });
   
   // Animate skill bars when they come into view
@@ -170,6 +215,15 @@ document.addEventListener('DOMContentLoaded', function() {
     skillObserver.observe(skillsSection);
   }
   
+  // Animate hobby cards
+  const hobbyCards = document.querySelectorAll('.hobby-card');
+  hobbyCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+    observer.observe(card);
+  });
+  
   // Animate project items
   const projectItems = document.querySelectorAll('.project-item');
   projectItems.forEach((item, index) => {
@@ -185,17 +239,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+// Add hover effect to social links
+const socialLinks = document.querySelectorAll('.social-link');
+socialLinks.forEach(link => {
+  link.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-2px) scale(1.1)';
+  });
+  
+  link.addEventListener('mouseleave', function() {
+    this.style.transform = 'translateY(0) scale(1)';
   });
 });
 
@@ -218,40 +270,105 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// Mobile menu toggle (for future mobile menu implementation)
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener('click', function() {
-    const navList = document.querySelector('.navbar-list');
-    navList.classList.toggle('active');
-  });
+console.log('Portfolio initialized successfully! Theme:', currentTheme);
+
+// Project Modal Functionality
+const projectModal = document.getElementById('project-modal');
+const modalClose = document.getElementById('modal-close');
+const projectItems = document.querySelectorAll('.project-item');
+
+// Project data
+const projectData = {
+  'Amazon Recommendation Engine': {
+    description: 'Built a recommendation system that recommends products to Amazon customers based on their review history.',
+    technologies: ['Python', 'Pandas', 'Scikit-learn', 'NumPy', 'Seaborn', 'LightFM'],
+    github: 'https://github.com/NiharAtri03/Amazon-Product-Recommendation-System'
+  },
+  'NFL Injury Predictor': {
+    description: 'Built a machine learning model that predicts NFL player injury severity based on historical data, player statistics, and game conditions.',
+    technologies: ['Python', 'Pandas', 'Numpy', 'Scikit-learn', 'Seaborn'],
+    github: 'https://github.com/NiharAtri03/NFL-Injury-Analysis'
+  },
+  'Eventura': {
+    description: 'Developed a event management platform where users can buy/sell tickets for nearby events.',
+    technologies: ['Python', 'SQLAlchemy', 'SQLite', 'Streamlit'],
+    github: 'https://github.com/NiharAtri03/Eventura'
+  },
+  'Shell Project': {
+    description: 'Built a Linux Shell replica that handles basic Shell functionality (commands, subshells, background processing, signal handling, wildcarding).',
+    technologies: ['C', 'C++', 'Flex (lexer)', 'Bison (parser)', 'Linux'],
+    github: 'https://github.com/NiharAtri03/Custom_Linux_Shell'
+  },
+  'HIV/AIDS Life Expectancy Analysis': {
+    description: 'Analyzed the statistical relationship between HIV/AIDS and life expectancy.',
+    technologies: ['R'],
+    github: 'https://docs.google.com/presentation/d/1HreWP0Z-ZPmHmlTcjcmTvY_vENw6M6Agfcdsa2x1iT8/edit?usp=sharing'
+  },
+  'Text Summarizer': {
+    description: 'Built a text summarizer that uses natural language processing to generate concise and coheren summaries.',
+    technologies: ['Python', 'Pandas', 'spaCy', 'NLTK', 'Streamlit'],
+  },
+  'My GPT': {
+    description: 'Implemented a basic transformer architecture (based on GPT) from scratch to create a chatbot.',
+    technologies: ['Python', 'PyTorch', 'Tiktoken (tokenizer)'],
+    github: 'https://github.com/NiharAtri03/my_gpt'
+  }
+};
+
+// Function to open modal
+function openProjectModal(projectTitle, imageSrc) {
+  const project = projectData[projectTitle];
+  if (project) {
+    // Set modal content
+    document.getElementById('modal-title').textContent = projectTitle;
+    document.getElementById('modal-description').textContent = project.description;
+    document.getElementById('modal-image').src = imageSrc;
+    document.getElementById('modal-image').alt = projectTitle;
+    document.getElementById('github-link').href = project.github;
+    
+    // Create technology tags
+    const techTagsContainer = document.getElementById('tech-tags');
+    techTagsContainer.innerHTML = '';
+    project.technologies.forEach(tech => {
+      const tag = document.createElement('span');
+      tag.className = 'tech-tag';
+      tag.textContent = tech;
+      techTagsContainer.appendChild(tag);
+    });
+    
+    // Show modal
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
-// Lazy load images
-const images = document.querySelectorAll('img[loading="lazy"]');
-const imageObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.src = img.dataset.src || img.src;
-      img.classList.add('loaded');
-      observer.unobserve(img);
-    }
+// Function to close modal
+function closeProjectModal() {
+  projectModal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Add click event listeners to project items
+projectItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const projectTitle = item.querySelector('.project-title').textContent;
+    const imageSrc = item.querySelector('img').src;
+    openProjectModal(projectTitle, imageSrc);
   });
 });
 
-images.forEach(img => imageObserver.observe(img));
+// Close modal events
+modalClose.addEventListener('click', closeProjectModal);
 
-// Add hover effect to social links
-const socialLinks = document.querySelectorAll('.social-link');
-socialLinks.forEach(link => {
-  link.addEventListener('mouseenter', function() {
-    this.style.transform = 'translateY(-2px) scale(1.1)';
-  });
-  
-  link.addEventListener('mouseleave', function() {
-    this.style.transform = 'translateY(0) scale(1)';
-  });
+projectModal.addEventListener('click', (e) => {
+  if (e.target === projectModal) {
+    closeProjectModal();
+  }
 });
 
-console.log('Portfolio initialized successfully! Theme:', currentTheme);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+    closeProjectModal();
+  }
+});
