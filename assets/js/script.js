@@ -50,7 +50,7 @@ themeToggle.addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const typewriterElement = document.getElementById('typewriter-text');
   if (typewriterElement) {
-    typeWriter(typewriterElement, "Hi, I'm Nihar Atri!", 150); // Slower typing speed
+    typeWriter(typewriterElement, "Hi, I'm Nihar Atri!", 150); // Much slower typing speed
   }
 });
 
@@ -73,9 +73,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
         this.classList.add("active");
         window.scrollTo(0, 0);
         
-        // Trigger animations for the new page
+        // Trigger progressive loading animation for the active page
         setTimeout(() => {
-          animateMainContent();
+          animatePageContent(pages[j]);
         }, 100);
         break;
       }
@@ -188,80 +188,58 @@ const observer = new IntersectionObserver(function(entries) {
   });
 }, observerOptions);
 
-// Function to animate main content sections
-function animateMainContent() {
-  const activePage = document.querySelector('article.active');
-  if (!activePage) return;
-  
-  // Animate main containers
-  const containers = activePage.querySelectorAll('.about-container, .page-container');
-  containers.forEach(container => {
-    setTimeout(() => {
-      container.classList.add('animate');
-    }, 100);
+// Progressive loading animation function
+function animatePageContent(page) {
+  // Reset all elements to initial state
+  const allElements = page.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content');
+  allElements.forEach((element, index) => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+    element.style.transition = 'none';
   });
   
-  // Animate profile section (About page)
-  const profileSection = activePage.querySelector('.profile-section');
-  if (profileSection) {
+  // Animate elements progressively
+  allElements.forEach((element, index) => {
     setTimeout(() => {
-      profileSection.classList.add('animate');
-    }, 400);
-  }
-  
-  // Animate timeline sections
-  const timelineSections = activePage.querySelectorAll('.timeline-section');
-  timelineSections.forEach((section, index) => {
-    setTimeout(() => {
-      section.classList.add('animate');
-    }, 700 + (index * 200));
+      element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
+    }, index * 150); // 150ms delay between each element
   });
   
-  // Animate skills section
-  const skillsSection = activePage.querySelector('.skills');
+  // Special handling for skill bars
+  const skillsSection = page.querySelector('.skills-list');
   if (skillsSection) {
     setTimeout(() => {
-      skillsSection.classList.add('animate');
-    }, 1000);
-  }
-  
-  // Animate coursework section
-  const courseworkSection = activePage.querySelector('.coursework-section-standalone');
-  if (courseworkSection) {
-    setTimeout(() => {
-      courseworkSection.classList.add('animate');
-    }, 1000);
-  }
-  
-  // Animate projects section
-  const projectsSection = activePage.querySelector('.projects-section');
-  if (projectsSection) {
-    setTimeout(() => {
-      projectsSection.classList.add('animate');
-    }, 400);
-  }
-  
-  // Animate hobbies section
-  const hobbiesSection = activePage.querySelector('.hobbies-section');
-  if (hobbiesSection) {
-    setTimeout(() => {
-      hobbiesSection.classList.add('animate');
-    }, 400);
-  }
-  
-  // Animate contact content
-  const contactContent = activePage.querySelector('.contact-content');
-  if (contactContent) {
-    setTimeout(() => {
-      contactContent.classList.add('animate');
-    }, 400);
+      const skillBars = skillsSection.querySelectorAll('.skill-progress-fill');
+      skillBars.forEach((bar, index) => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300 + (index * 100));
+      });
+    }, allElements.length * 150 + 200);
   }
 }
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
-  // Initial animation for About page
-  animateMainContent();
+  // Initially hide all content elements
+  const allContentElements = document.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content');
+  allContentElements.forEach((element) => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(30px)';
+    element.style.transition = 'none';
+  });
+  
+  // Animate the initially active page (About Me)
+  const activePage = document.querySelector('[data-page].active');
+  if (activePage) {
+    setTimeout(() => {
+      animatePageContent(activePage);
+    }, 500); // Start animation after typewriter effect begins
+  }
   
   // Animate skill bars when they come into view
   const skillsSection = document.querySelector('.skills-list');
