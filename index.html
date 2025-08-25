@@ -35,14 +35,14 @@
 \*-----------------------------------*/
 
 :root {
-  /* Dark mode colors (default) */
-  --primary-bg: #0a0a0a;
-  --secondary-bg: #1a1a1a;
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --accent-color: #64b5f6;
-  --border-color: #2a2a2a;
-  --hover-bg: rgba(100, 181, 246, 0.1);
+  /* Light mode colors (default) */
+  --primary-bg: #ffffff;
+  --secondary-bg: #f8f8f8;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent-color: #ff69b4;
+  --border-color: #e0e0e0;
+  --hover-bg: rgba(255, 105, 180, 0.1);
   
   /* Typography */
   --ff-poppins: 'Poppins', sans-serif;
@@ -69,15 +69,15 @@
   --transition-2: 0.5s ease-in-out;
 }
 
-/* Light mode */
-body.light-mode {
-  --primary-bg: #ffffff;
-  --secondary-bg: #f8f8f8;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --accent-color: #ff69b4;
-  --border-color: #e0e0e0;
-  --hover-bg: rgba(255, 105, 180, 0.1);
+/* Dark mode */
+body.dark-mode {
+  --primary-bg: #0a0a0a;
+  --secondary-bg: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-color: #64b5f6;
+  --border-color: #2a2a2a;
+  --hover-bg: rgba(100, 181, 246, 0.1);
 }
 
 /*-----------------------------------*\
@@ -148,14 +148,14 @@ input, textarea {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(10, 10, 10, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   backdrop-filter: blur(10px);
 }
 
-body.light-mode .navbar-fixed {
-  background: rgba(255, 255, 255, 0.95);
+body.dark-mode .navbar-fixed {
+  background: rgba(10, 10, 10, 0.95);
 }
 
 .navbar-container {
@@ -239,7 +239,7 @@ body.light-mode .navbar-fixed {
   justify-content: center;
 }
 
-body.light-mode .toggle-thumb {
+body.dark-mode .toggle-thumb {
   transform: translateX(40px);
 }
 
@@ -251,11 +251,11 @@ body.light-mode .toggle-thumb {
   transition: opacity var(--transition-1);
 }
 
-.moon-icon { opacity: 1; }
-.sun-icon { opacity: 0; }
+.moon-icon { opacity: 0; }
+.sun-icon { opacity: 1; }
 
-body.light-mode .moon-icon { opacity: 0; }
-body.light-mode .sun-icon { opacity: 1; }
+body.dark-mode .moon-icon { opacity: 1; }
+body.dark-mode .sun-icon { opacity: 0; }
 
 /*-----------------------------------*\
   #MAIN CONTENT
@@ -272,19 +272,9 @@ article {
 
 article.active {
   display: block;
-  animation: fadeIn 0.5s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
 
 /*-----------------------------------*\
   #ABOUT PAGE
@@ -735,21 +725,180 @@ article.active {
   font-size: var(--fs-2);
   font-weight: var(--fw-500);
   color: var(--text-primary);
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   margin-top: 60px;
   position: relative;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
+  text-align: center;
 }
 
 .section-subtitle::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
   background: var(--accent-color);
   border-radius: 2px;
+}
+
+/* Enhanced Timeline Styling */
+.timeline-section {
+  margin-bottom: 80px;
+}
+
+.timeline-list {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent-color) 0%, var(--border-color) 100%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 48px;
+  margin-bottom: 32px;
+  background: var(--primary-bg);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-color);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -44px;
+  top: 40px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  border: 3px solid var(--primary-bg);
+  box-shadow: 0 0 0 3px var(--accent-color);
+}
+
+.timeline-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.timeline-item-title {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-600);
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.timeline-company {
+  font-size: var(--fs-4);
+  color: var(--accent-color);
+  font-weight: var(--fw-500);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.timeline-date {
+  font-size: var(--fs-6);
+  color: var(--accent-color);
+  font-weight: var(--fw-500);
+  padding: 8px 16px;
+  background: var(--hover-bg);
+  border-radius: 20px;
+  border: 2px solid var(--accent-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.timeline-text {
+  font-size: var(--fs-6);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.timeline-text br {
+  display: block;
+  margin: 8px 0;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+  .timeline-list {
+    padding-left: 24px;
+  }
+  
+  .timeline-item {
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .timeline-item::before {
+    left: -28px;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .timeline-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .timeline-date {
+    align-self: flex-start;
+  }
+  
+  .section-subtitle {
+    margin-bottom: 32px;
+    margin-top: 40px;
+  }
+  
+  .timeline-section {
+    margin-bottom: 60px;
+  }
+}
+
+/* Enhanced Logo Styling */
+.university-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: white;
+  padding: 4px;
+  border: 2px solid var(--border-color);
+  transition: all var(--transition-1);
+}
+
+.university-logo:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .expandable-content.expanded {
@@ -1636,13 +1785,13 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Data Science Intern</h4>
-                  <p class="timeline-company">Quantlink</p>
+                  <h4 class="timeline-item-title">Quantlink</h4>
+                  <p class="timeline-company">AI Engineering Intern</p>
                 </div>
                 <span class="timeline-date">Summer 2025</span>
               </div>
               <p class="timeline-text">
-                • Designed core data pipelines with Dagster (orchestration/validation), dbt (transformation), and ClickHouse database to process 60M+ stock data points, enabling scalable data analysis
+                • Designed core data pipelines with Dagster (orchestration/validation), dbt (transformation), and ClickHouse database to process 60M+ stock data points, enabling scalable data analysis <br>
                 • Trained Gradient Boosting, Random Forest, and SARIMA models with Scikit-learn and statsmodels to predict quarterly trends in stock prices; achieved 86% accuracy on backtesting data
               </p>
             </li>
@@ -1650,17 +1799,17 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Data Science Research Intern</h4>
+                    <h4 class="timeline-item-title">Purdue Discovery Park </h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
-                      Purdue Discovery Park (DUIRI)
+                      <img src="./assets/images/discovery-park-logo.png" alt="Purdue Discovery Park Logo" class="university-logo">
+                      Data Science Research Intern
                     </p>
                   </div>
                 <span class="timeline-date">August 2024 — December 2024</span>
               </div>
               <p class="timeline-text">
-                •	Built a PyTorch sentiment analysis model to analyze public opinions on renewable energy/climate in the U.S.
-                •	Deployed the model as a Flask REST API in a Docker container to enable real-time predictions for political scientists
+                •	Built a PyTorch sentiment analysis model to analyze public opinions on renewable energy/climate in the U.S. <br>
+                •	Deployed the model as a Flask REST API in a Docker container to enable real-time predictions for political scientists <br>
                 •	Created geospatial visualizations with GeoPandas; published results in the Purdue Journal of Undergraduate Research                
               </p>
             </li>
@@ -1668,18 +1817,18 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Data Science Intern</h4>
+                    <h4 class="timeline-item-title">John Deere</h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/john-deere-logo.png" alt="John Deere Logo" class="university-logo">
-                      John Deere
+                      <img src="./assets/images/John_Deere_logo.svg.png" alt="John Deere Logo" class="university-logo">
+                      Data Science Intern 
                     </p>
                   </div>
                 <span class="timeline-date">Summer 2024</span>
               </div>
               <p class="timeline-text">
-                •	Developed a PySpark machine learning model pipeline that predicted farmer machine failure with 98% accuracy
-                •	Extracted & transformed data using SQL and fine-tuned Neural Network/Gradient Boosted classifiers on Databricks
-                •	Generated interactive dashboards with Plotly and Pandas to communicate findings to business stakeholders
+                •	Developed a PySpark machine learning model pipeline that predicted farmer machine failure with 98% accuracy <br>
+                •	Extracted & transformed data using SQL and fine-tuned Neural Network/Gradient Boosted classifiers on Databricks <br>
+                •	Generated interactive dashboards with Plotly and Pandas to communicate findings to business stakeholders <br>
                 •	Spearheaded a preemptive repair business model estimated to increase aftermarket recurring revenue by ~10%                
               </p>
             </li>
@@ -1688,17 +1837,17 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Machine Learning Researcher</h4>
+                    <h4 class="timeline-item-title">Purdue Low Power Computer Vision Lab</h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
-                      Low Power Computer Vision Lab
+                      <img src="./assets/images/lpcv-logo_2.png" alt="LPCV Logo" class="university-logo">
+                      Machine Learning Researcher
                     </p>
                   </div>
                 <span class="timeline-date">January 2024 — May 2025</span>
               </div>
               <p class="timeline-text">
-                •	Built a Python data pipeline that scrapes GitHub repositories, parses their code, and analyzes their reproducibility
-                •	Implementing Diffusion and GAN architectures in PyTorch for embedded devices and comparing their efficiencies
+                •	Built a Python data pipeline that scrapes GitHub repositories, parses their code, and analyzes their reproducibility <br>
+                •	Implementing Diffusion and GAN architectures in PyTorch for embedded devices and comparing their efficiencies <br>
                 •	Researching optimizations on SOTA Gaussian Splatting and NeRF architectures for 3D mesh generation in PyTorch                           
               </p>
             </li>
@@ -1706,17 +1855,16 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Software Engineer Intern</h4>
+                    <h4 class="timeline-item-title">Delta Airlines</h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/delta-logo.png" alt="Delta Airlines Logo" class="university-logo">
-                      Delta Airlines
-                    </p>
+                      <img src="./assets/images/Delta-Air-Lines-Logo.png" alt="Delta Airlines Logo" class="university-logo">
+                      Software Engineer Intern                    </p>
                   </div>
                 <span class="timeline-date">Summer 2023</span>
               </div>
               <p class="timeline-text">
-                •	Built an Angular site with TypeScript/Node.js backend to streamline asset management for marketing campaigns
-                •	Engineered the AWS architecture (Route 53, CloudSearch, Lambda functions, DynamoDB) in an Agile team
+                •	Built an Angular site with TypeScript/Node.js backend to streamline asset management for marketing campaigns <br>
+                •	Engineered the AWS architecture (Route 53, CloudSearch, Lambda functions, DynamoDB) in an Agile team <br>
                 •	Automated CI/CD pipelines via GitLab and wrote unit tests with Jasmine, achieving 80% coverage                
               </p>
             </li>
@@ -1724,18 +1872,18 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Data Science Research Intern</h4>
+                    <h4 class="timeline-item-title">ATOM Consortium (The Data Mine) </h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
-                      ATOM Consortium with The Data Mine
+                      <img src="./assets/images/ATOM-banner-7.png" alt="ATOM Logo" class="university-logo">
+                      Data Science Research Intern
                     </p>
                   </div>
                 <span class="timeline-date">August 2022 — May 2023</span>
               </div>
               <p class="timeline-text">
-                •	Collaborated with pharmaceutical data scientists to accelerate drug discovery by predicting novel protein interactions
-                •	Conducted exploratory data analysis in Pandas and implemented Graph CNNs in PyTorch and Scikit-learn
-                •	Worked in an Agile setting with 5 interdisciplinary teammates and used Tableau to convey our results to researchers 
+                •	Collaborated with pharmaceutical data scientists to accelerate drug discovery by predicting novel protein interactions <br>
+                •	Conducted exploratory data analysis in Pandas and implemented Graph CNNs in PyTorch and Scikit-learn <br>
+                •	Worked in an Agile setting with 5 interdisciplinary teammates and used Tableau to convey our results to researchers <br>
                 •	Presented our findings at the Data Science Symposium to 400+ multidisciplinary students and researchers                
               </p>
             </li>
@@ -1743,52 +1891,52 @@ textarea.form-input {
         </section>
 
         <!-- Extracurriculars Experience Section -->
-        <section class="timeline-section">
+        <section class="timeline-section" style="margin-top: 80px;">
           <h3 class="section-subtitle">Extracurricular Experience</h3>
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Executive Committee Member</h4>
+                    <h4 class="timeline-item-title">BoilerMake Hackathon </h4>
                     <p class="timeline-company">
                       <img src="./assets/images/boilermake-logo.png" alt="BoilerMake Logo" class="university-logo">
-                      BoilerMake
+                      Logistics Planning Member
                     </p>
                   </div>
-                <span class="timeline-date">2023 — 2025</span>
+                <span class="timeline-date">May 2022 — May 2025</span>
               </div>
               <p class="timeline-text">
-                •	Collaborated with 5 board members to contact 300+ companies and raise $110,000 for Purdue’s largest hackathon
-                •	Leveraged strong interpersonal skills to negotiate with company representatives, resulting in a 15% funding increase
-                •	Boasted 500+ attendees and 15 corporate partnerships, with 96% of participants wanting to return                               </p>
+                •	Collaborated with 5 board members to contact 300+ companies and raise $110,000 for Purdue's largest hackathon <br>
+                •	Leveraged strong interpersonal skills to negotiate with company representatives, resulting in a 15% funding increase <br>
+                •	Boasted 500+ attendees and 15 corporate partnerships, with 96% of participants wanting to return                                </p>
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">Mentor</h4>
+                    <h4 class="timeline-item-title">Purdue LaunchPad</h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
-                      Purdue LaunchPad
+                      <img src="./assets/images/launchpad-logo.png" alt="Launchpad Logo" class="university-logo">
+                      Mentor 
                     </p>
                   </div>
-                <span class="timeline-date">2023 — 2024</span>
+                <span class="timeline-date">August 2023 — May 2025</span>
               </div>
               <p class="timeline-text">
-                •	Mentoring freshman computer science students through developing programming projects
+                •	Mentoring freshman computer science students through developing programming projects <br>
                 •	Communicating complex computer science concepts in simple terms and debugging code                              </p>
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                                   <div>
-                    <h4 class="timeline-item-title">ML @ Purdue Member</h4>
+                    <h4 class="timeline-item-title">Machine Learning @ Purdue</h4>
                     <p class="timeline-company">
-                      <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
-                      Machine Learning Club
+                      <img src="./assets/images/ml-purdue-logo.png" alt="Ml @ Purdue Logo" class="university-logo">
+                       Club Member
                     </p>
                   </div>
-                <span class="timeline-date">2023 — 2025</span>
+                <span class="timeline-date">August 2023 — May 2025</span>
               </div>
               <p class="timeline-text">
                 •	Attended weekly meetings to discuss ML research papers and collaborate on projects
@@ -1798,59 +1946,50 @@ textarea.form-input {
         </section>
 
         <!-- Teaching Experience Section -->
-        <section class="timeline-section">
+        <section class="timeline-section" style="margin-top: 80px;">
           <h3 class="section-subtitle">Teaching Experience</h3>
           <ol class="timeline-list">
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Teaching Assistant - Systems Programming</h4>
-                  <p class="timeline-company">CS 252 - Purdue University</p>
+                  <h4 class="timeline-item-title"> Undergraduate Teaching Assistant</h4>
+                  <p class="timeline-company">Purdue University Computer Science Department</p>
                 </div>
-                <span class="timeline-date">2024 — 2025</span>
+                <span class="timeline-date">August 2023 — May 2025</span>
               </div>
               <p class="timeline-text">
-                Assisted in teaching systems programming concepts including C/C++, memory management, and operating system principles. Led lab sessions and provided one-on-one support to students.
+                •	Worked as a TA for CS 252: Systems Programming, CS 176: Data Engineering In Python, CS 242: Introduction to Data Science <br>
+                • Lead weekly help sessions (Practice/Study/Observation sessions) available to 900+ students, writing practice problems, and grading homeworks/exams <br>
+                •	Host weekly office hours to help students review concepts and debug code
               </p>
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Teaching Assistant - Introduction to Data Science</h4>
-                  <p class="timeline-company">CS 242 - Purdue University</p>
+                  <h4 class="timeline-item-title">Undergraduate Teaching Assistant </h4>
+                  <p class="timeline-company">The Data Mine</p>
                 </div>
-                <span class="timeline-date">2023 — 2024</span>
+                <span class="timeline-date">August 2023 — May 2025</span>
               </div>
               <p class="timeline-text">
-                Supported instruction in data science fundamentals including Python programming, statistical analysis, and data visualization techniques. Helped students with programming assignments and projects.
+                •	Helped develop and grade weekly homeworks on data science, data mining, and machine learning 
+                •	Hosted weekly office hours/answered student questions on Piazza to help review concepts and debug code
+              </p>           
               </p>
             </li>
 
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Teaching Assistant - Data Engineering</h4>
-                  <p class="timeline-company">CS 176 - Purdue University</p>
+                  <h4 class="timeline-item-title">Math and Science Tutor</h4>
+                  <p class="timeline-company">Kumon</p>
                 </div>
-                <span class="timeline-date">2022 — 2023</span>
+                <span class="timeline-date">Janurary 2019 – April 2019</span>
               </div>
               <p class="timeline-text">
-                Assisted in teaching data engineering concepts including database design, ETL processes, and big data technologies. Supported students in building data pipelines and working with real-world datasets.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <div class="timeline-item-header">
-                <div>
-                  <h4 class="timeline-item-title">Teaching Assistant - The Data Mine</h4>
-                  <p class="timeline-company">TDM 101 - Purdue University</p>
-                </div>
-                <span class="timeline-date">2023 — 2024</span>
-              </div>
-              <p class="timeline-text">
-                Supported instruction in data science fundamentals and research methodologies. Helped students develop data analysis skills and work on real-world research projects through The Data Mine program.
-              </p>
+                • Mentored ~20 middle to high school students in advanced math and science topics <br>
+                • Crafted effective curriculums based on the individual student's experience and age              </p>
             </li>
           </ol>
         </section>
@@ -2231,21 +2370,21 @@ textarea.form-input {
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Check for saved theme preference or default to dark mode
-let currentTheme = 'dark';
+// Check for saved theme preference or default to light mode
+let currentTheme = 'light';
 try {
   // Use a simple variable instead of localStorage
-  if (body.classList.contains('light-mode')) {
-    currentTheme = 'light';
+  if (body.classList.contains('dark-mode')) {
+    currentTheme = 'dark';
   }
 } catch (e) {
   // Fallback if storage isn't available
-  currentTheme = 'dark';
+  currentTheme = 'light';
 }
 
 // Theme toggle event listener
 themeToggle.addEventListener('click', function() {
-  body.classList.toggle('light-mode');
+  body.classList.toggle('dark-mode');
   
   // Add animation effect
   this.style.transform = 'scale(0.95)';
@@ -2385,13 +2524,12 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
-  // Animate timeline items
+  // Make all timeline items visible immediately
   const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach((item, index) => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(item);
+  timelineItems.forEach((item) => {
+    item.style.opacity = '1';
+    item.style.transform = 'translateY(0)';
+    item.style.transition = 'none';
   });
   
   // Animate skill bars when they come into view
