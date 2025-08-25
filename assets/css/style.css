@@ -68,6 +68,12 @@ html {
   font-size: 16px;
 }
 
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Account for fixed navbar */
+}
+
 body {
   background: var(--primary-bg);
   color: var(--text-primary);
@@ -463,6 +469,102 @@ article.active {
   margin-bottom: 40px;
   margin-top: 0;
   text-align: center;
+}
+
+/*-----------------------------------*\
+  #TABLE OF CONTENTS
+\*-----------------------------------*/
+
+.toc-container {
+  background: var(--secondary-bg);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 48px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.toc-title {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-600);
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.toc-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.toc-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--primary-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  transition: all var(--transition-1);
+  min-width: 180px;
+  justify-content: center;
+}
+
+.toc-link:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: var(--hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toc-link ion-icon {
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.toc-link span {
+  font-weight: var(--fw-500);
+}
+
+/* Responsive TOC */
+@media (max-width: 768px) {
+  .toc-container {
+    padding: 24px 20px;
+    margin-bottom: 32px;
+  }
+  
+  .toc-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .toc-link {
+    min-width: auto;
+    width: 100%;
+  }
 }
 
 /*-----------------------------------*\
