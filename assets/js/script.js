@@ -83,6 +83,26 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+// Handle table of contents anchor links with smooth scrolling
+document.addEventListener('DOMContentLoaded', function() {
+  const tocLinks = document.querySelectorAll('.toc-link');
+  tocLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Smooth scroll to target with navbar offset
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+
 // Portfolio filter functionality
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
@@ -191,7 +211,7 @@ const observer = new IntersectionObserver(function(entries) {
 // Progressive loading animation function
 function animatePageContent(page) {
   // Reset all elements to initial state
-  const allElements = page.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content');
+  const allElements = page.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .toc-container');
   allElements.forEach((element, index) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
@@ -204,7 +224,7 @@ function animatePageContent(page) {
       element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
       element.style.opacity = '1';
       element.style.transform = 'translateY(0)';
-    }, index * 150); // 150ms delay between each element
+    }, index * 500); // 500ms delay between each element
   });
   
   // Special handling for skill bars
@@ -226,7 +246,7 @@ function animatePageContent(page) {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function() {
   // Initially hide all content elements
-  const allContentElements = document.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content');
+  const allContentElements = document.querySelectorAll('.timeline-item, .skills-item, .hobby-card, .project-item, .coursework-category, .profile-section, .about-content, .toc-container');
   allContentElements.forEach((element) => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
