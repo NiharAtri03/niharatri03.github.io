@@ -222,9 +222,9 @@ function animatePageContent(page) {
       experienceNavSidebar.style.opacity = '1';
       experienceNavSidebar.style.transform = 'translateX(0)';
     }
-  }, 200);
+  }, 100);
   
-  // Special handling for skill bars - animate after all content appears
+  // Special handling for skill bars - animate after all content has appeared
   const skillsSection = page.querySelector('.skills-list');
   if (skillsSection && skillsItems.length > 0) {
     setTimeout(() => {
@@ -236,7 +236,7 @@ function animatePageContent(page) {
           bar.style.width = width;
         }, 100 + (index * 50)); // Faster skill bar animation
       });
-    }, 1000); // Start after all content has appeared
+    }, 900); // Start after all content has appeared (100ms + 800ms animation duration)
   }
 }
 
@@ -261,7 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Ensure experience nav sidebar is properly positioned
   const experienceSidebar = document.querySelector('.experience-nav-sidebar');
   if (experienceSidebar) {
-    experienceSidebar.style.top = '120px';
+    experienceSidebar.style.top = '50%';
+    experienceSidebar.style.transform = 'translateY(-50%) translateX(-20px)';
   }
   
   // Remove the old individual element animations since they're now handled by animatePageContent
