@@ -28,11 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
+  <link rel="stylesheet" href="./assets/css/style.css">
 
 :root {
   /* Light mode colors (default) */
@@ -208,7 +204,7 @@ body.dark-mode .navbar-fixed {
 \*-----------------------------------*/
 
 .theme-toggle {
-  width: 70px;
+  width: 90px;
   height: 32px;
   padding: 0;
   position: relative;
@@ -240,7 +236,7 @@ body.dark-mode .navbar-fixed {
 }
 
 body.dark-mode .toggle-thumb {
-  transform: translateX(40px);
+  transform: translateX(60px);
 }
 
 .moon-icon,
@@ -262,7 +258,7 @@ body.dark-mode .sun-icon { opacity: 0; }
 \*-----------------------------------*/
 
 .main-content {
-  padding-top: 50px;
+  padding-top: 20px;
   min-height: 100vh;
 }
 
@@ -315,6 +311,21 @@ article.active {
   font-weight: var(--fw-600);
   margin-bottom: 8px;
   line-height: 1.2;
+}
+
+/* Typewriter effect */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--accent-color);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .profile-info .title {
@@ -467,7 +478,7 @@ article.active {
   font-size: var(--fs-hero);
   font-weight: var(--fw-600);
   margin-bottom: 40px;
-  margin-top: 20px;
+  margin-top: 0;
   text-align: center;
 }
 
@@ -727,7 +738,7 @@ article.active {
   font-weight: var(--fw-500);
   color: var(--text-primary);
   margin-bottom: 48px;
-  margin-top: 20px;
+  margin-top: 10px;
   position: relative;
   padding-bottom: 16px;
   text-align: center;
@@ -1450,7 +1461,7 @@ textarea.form-input {
   }
   
   .theme-toggle {
-    width: 60px;
+    width: 80px;
     height: 28px;
   }
   
@@ -1459,8 +1470,8 @@ textarea.form-input {
     height: 20px;
   }
   
-  body.light-mode .toggle-thumb {
-    transform: translateX(34px);
+  body.dark-mode .toggle-thumb {
+    transform: translateX(54px);
   }
   
   .profile-section {
@@ -1589,7 +1600,7 @@ textarea.form-input {
           </figure>
           
           <div class="profile-info">
-            <h1 class="name">Hi, I'm Nihar Atri!</h1>
+                            <h1 class="name" id="typewriter-text"></h1>
             <p class="title">Aspiring Data Scientist/Software Engineer!</p>
             <p class="connect-text">Let's Connect</p>
             <!-- Social Links -->
@@ -1960,8 +1971,8 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title"> Undergraduate Teaching Assistant</h4>
-                  <p class="timeline-company">Purdue University Computer Science Department</p>
+                  <h4 class="timeline-item-title"> Purdue University Computer Science Department</h4>
+                  <p class="timeline-company">Undergraduate Teaching Assistant</p>
                 </div>
                 <span class="timeline-date">August 2023 — May 2025</span>
               </div>
@@ -1975,8 +1986,8 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Undergraduate Teaching Assistant </h4>
-                  <p class="timeline-company">The Data Mine</p>
+                  <h4 class="timeline-item-title">The Data Mine</h4>
+                  <p class="timeline-company">Undergraduate Teaching Assistant</p>
                 </div>
                 <span class="timeline-date">August 2023 — May 2025</span>
               </div>
@@ -1990,8 +2001,8 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Math and Science Tutor</h4>
-                  <p class="timeline-company">Kumon</p>
+                  <h4 class="timeline-item-title">Kumon</h4>
+                  <p class="timeline-company">Math and Science Tutor</p>
                 </div>
                 <span class="timeline-date">Janurary 2019 – April 2019</span>
               </div>
@@ -2020,10 +2031,10 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Master of Computational Data Science</h4>
+                  <h4 class="timeline-item-title">Carnegie Mellon University</h4>
                   <p class="timeline-company">
                     <img src="./assets/images/cmu-logo.png" alt="CMU Logo" class="university-logo">
-                    Carnegie Mellon University
+                    Master of Computational Data Science
                   </p>
                 </div>
                 <span class="timeline-date">2025 — 2026</span>
@@ -2037,10 +2048,10 @@ textarea.form-input {
             <li class="timeline-item">
               <div class="timeline-item-header">
                 <div>
-                  <h4 class="timeline-item-title">Bachelors of Science in CS, DS, and Applied Statistics</h4>
+                  <h4 class="timeline-item-title">Purdue University</h4>
                   <p class="timeline-company">
                     <img src="./assets/images/purdue-logo.png" alt="Purdue Logo" class="university-logo">
-                    Purdue University
+                    Bachelors of Science in CS, DS, and Applied Statistics
                   </p>
                 </div>
                 <span class="timeline-date">2021 — 2025</span>
@@ -2371,355 +2382,4 @@ textarea.form-input {
     </div>
   </footer>
 
-  <script>
-'use strict';
-
-// Theme Toggle Functionality
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Check for saved theme preference or default to light mode
-let currentTheme = 'light';
-try {
-  // Use a simple variable instead of localStorage
-  if (body.classList.contains('dark-mode')) {
-    currentTheme = 'dark';
-  }
-} catch (e) {
-  // Fallback if storage isn't available
-  currentTheme = 'light';
-}
-
-// Theme toggle event listener
-themeToggle.addEventListener('click', function() {
-  body.classList.toggle('dark-mode');
-  
-  // Add animation effect
-  this.style.transform = 'scale(0.95)';
-  setTimeout(() => {
-    this.style.transform = 'scale(1)';
-  }, 200);
-});
-
-// Page navigation
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// Add event to all nav links
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-    // Remove active class from all pages and nav links
-    pages.forEach(page => page.classList.remove("active"));
-    navigationLinks.forEach(link => link.classList.remove("active"));
-    
-    // Add active class to clicked nav link and corresponding page
-    const targetPage = this.innerHTML.toLowerCase();
-    for (let j = 0; j < pages.length; j++) {
-      if (pages[j].dataset.page === targetPage) {
-        pages[j].classList.add("active");
-        this.classList.add("active");
-        window.scrollTo(0, 0);
-        break;
-      }
-    }
-  });
-}
-
-// Portfolio filter functionality
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-// Filter function
-const filterFunc = function (selectedValue) {
-  for (let i = 0; i < filterItems.length; i++) {
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-  }
-}
-
-// Add event to all filter buttons
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-  filterBtn[i].addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase();
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-  });
-}
-
-// Expand/Collapse functionality for timeline items
-function toggleExpand(contentId, button) {
-  const content = document.getElementById(contentId);
-  const icon = button.querySelector('ion-icon');
-  const text = button.querySelector('span');
-  
-  if (content.classList.contains('expanded')) {
-    content.classList.remove('expanded');
-    button.classList.remove('expanded');
-    text.textContent = 'Show Details';
-  } else {
-    content.classList.add('expanded');
-    button.classList.add('expanded');
-    text.textContent = 'Hide Details';
-  }
-}
-
-// Contact form functionality
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// Add event to all form input fields
-if (form) {
-  for (let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener("input", function () {
-      // Check form validation
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
-      }
-    });
-  }
-
-  // Form submission
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Add loading state to button
-    formBtn.innerHTML = '<ion-icon name="hourglass-outline"></ion-icon><span>Sending...</span>';
-    formBtn.disabled = true;
-    
-    // Simulate form submission
-    setTimeout(() => {
-      formBtn.innerHTML = '<ion-icon name="checkmark-circle-outline"></ion-icon><span>Message Sent!</span>';
-      formBtn.style.background = '#4caf50';
-      
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        form.reset();
-        formBtn.innerHTML = '<ion-icon name="paper-plane"></ion-icon><span>Send Message</span>';
-        formBtn.style.background = '';
-        formBtn.disabled = true;
-      }, 2000);
-    }, 1500);
-  });
-}
-
-// Animate elements on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', function() {
-  // Make all timeline items visible immediately
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach((item) => {
-    item.style.opacity = '1';
-    item.style.transform = 'translateY(0)';
-    item.style.transition = 'none';
-  });
-  
-  // Animate skill bars when they come into view
-  const skillsSection = document.querySelector('.skills-list');
-  if (skillsSection) {
-    const skillObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const skillBars = entry.target.querySelectorAll('.skill-progress-fill');
-          skillBars.forEach((bar, index) => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-              bar.style.width = width;
-            }, 200 + (index * 100));
-          });
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-    
-    skillObserver.observe(skillsSection);
-  }
-  
-  // Animate hobby cards
-  const hobbyCards = document.querySelectorAll('.hobby-card');
-  hobbyCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
-  });
-  
-  // Animate project items
-  const projectItems = document.querySelectorAll('.project-item');
-  projectItems.forEach((item, index) => {
-    if (item.classList.contains('active')) {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        item.style.opacity = '1';
-        item.style.transform = 'translateY(0)';
-      }, index * 100);
-    }
-  });
-});
-
-// Add hover effect to social links
-const socialLinks = document.querySelectorAll('.social-link');
-socialLinks.forEach(link => {
-  link.addEventListener('mouseenter', function() {
-    this.style.transform = 'translateY(-2px) scale(1.1)';
-  });
-  
-  link.addEventListener('mouseleave', function() {
-    this.style.transform = 'translateY(0) scale(1)';
-  });
-});
-
-// Add keyboard navigation support
-document.addEventListener('keydown', function(e) {
-  // Toggle theme with keyboard shortcut (Ctrl/Cmd + Shift + L)
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'L') {
-    themeToggle.click();
-  }
-  
-  // Navigate between tabs with arrow keys
-  const activeNavIndex = Array.from(navigationLinks).findIndex(link => 
-    link.classList.contains('active')
-  );
-  
-  if (e.key === 'ArrowRight' && activeNavIndex < navigationLinks.length - 1) {
-    navigationLinks[activeNavIndex + 1].click();
-  } else if (e.key === 'ArrowLeft' && activeNavIndex > 0) {
-    navigationLinks[activeNavIndex - 1].click();
-  }
-});
-
-console.log('Portfolio initialized successfully! Theme:', currentTheme);
-
-// Project Modal Functionality
-const projectModal = document.getElementById('project-modal');
-const modalClose = document.getElementById('modal-close');
-const projectItems = document.querySelectorAll('.project-item');
-
-// Project data
-const projectData = {
-  'Amazon Recommendation Engine': {
-    description: 'Built a recommendation system that recommends products to Amazon customers based on their review history.',
-    technologies: ['Python', 'Pandas', 'Scikit-learn', 'NumPy', 'Seaborn', 'LightFM'],
-    github: 'https://github.com/NiharAtri03/Amazon-Product-Recommendation-System'
-  },
-  'NFL Injury Predictor': {
-    description: 'Built a machine learning model that predicts NFL player injury severity based on historical data, player statistics, and game conditions.',
-    technologies: ['Python', 'Pandas', 'Numpy', 'Scikit-learn', 'Seaborn'],
-    github: 'https://github.com/NiharAtri03/NFL-Injury-Analysis'
-  },
-  'Eventura': {
-    description: 'Developed a event management platform where users can buy/sell tickets for nearby events.',
-    technologies: ['Python', 'SQLAlchemy', 'SQLite', 'Streamlit'],
-    github: 'https://github.com/NiharAtri03/Eventura'
-  },
-  'Shell Project': {
-    description: 'Built a Linux Shell replica that handles basic Shell functionality (commands, subshells, background processing, signal handling, wildcarding).',
-    technologies: ['C', 'C++', 'Flex (lexer)', 'Bison (parser)', 'Linux'],
-    github: 'https://github.com/NiharAtri03/Custom_Linux_Shell'
-  },
-  'HIV/AIDS Life Expectancy Analysis': {
-    description: 'Analyzed the statistical relationship between HIV/AIDS and life expectancy.',
-    technologies: ['R'],
-    github: 'https://docs.google.com/presentation/d/1HreWP0Z-ZPmHmlTcjcmTvY_vENw6M6Agfcdsa2x1iT8/edit?usp=sharing'
-  },
-  'Text Summarizer': {
-    description: 'Built a text summarizer that uses natural language processing to generate concise and coheren summaries.',
-    technologies: ['Python', 'Pandas', 'spaCy', 'NLTK', 'Streamlit'],
-  },
-  'My GPT': {
-    description: 'Implemented a basic transformer architecture (based on GPT) from scratch to create a chatbot.',
-    technologies: ['Python', 'PyTorch', 'Tiktoken (tokenizer)'],
-    github: 'https://github.com/NiharAtri03/my_gpt'
-  }
-};
-
-// Function to open modal
-function openProjectModal(projectTitle, imageSrc) {
-  const project = projectData[projectTitle];
-  if (project) {
-    // Set modal content
-    document.getElementById('modal-title').textContent = projectTitle;
-    document.getElementById('modal-description').textContent = project.description;
-    document.getElementById('modal-image').src = imageSrc;
-    document.getElementById('modal-image').alt = projectTitle;
-    document.getElementById('github-link').href = project.github;
-    
-    // Create technology tags
-    const techTagsContainer = document.getElementById('tech-tags');
-    techTagsContainer.innerHTML = '';
-    project.technologies.forEach(tech => {
-      const tag = document.createElement('span');
-      tag.className = 'tech-tag';
-      tag.textContent = tech;
-      techTagsContainer.appendChild(tag);
-    });
-    
-    // Show modal
-    projectModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-// Function to close modal
-function closeProjectModal() {
-  projectModal.classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
-
-// Add click event listeners to project items
-projectItems.forEach(item => {
-  item.addEventListener('click', (e) => {
-    e.preventDefault();
-    const projectTitle = item.querySelector('.project-title').textContent;
-    const imageSrc = item.querySelector('img').src;
-    openProjectModal(projectTitle, imageSrc);
-  });
-});
-
-// Close modal events
-modalClose.addEventListener('click', closeProjectModal);
-
-projectModal.addEventListener('click', (e) => {
-  if (e.target === projectModal) {
-    closeProjectModal();
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && projectModal.classList.contains('active')) {
-    closeProjectModal();
-  }
-});
-  </script>
-
-  <!--
-    -
+  <script src="./assets/js/script.js"></script>
