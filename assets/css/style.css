@@ -240,10 +240,15 @@ body.dark-mode .sun-icon { opacity: 0; }
 
 article {
   display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 article.active {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /*-----------------------------------*\
@@ -254,6 +259,14 @@ article.active {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.about-container.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .profile-section {
@@ -262,6 +275,14 @@ article.active {
   gap: 60px;
   margin-bottom: 60px;
   padding: 20px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;
+}
+
+.profile-section.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .avatar-box {
@@ -385,6 +406,14 @@ article.active {
 /* Skills */
 .skills {
   margin-top: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 1.2s, transform 0.6s ease 1.2s;
+}
+
+.skills.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skills-title {
@@ -446,6 +475,14 @@ article.active {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.page-container.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .page-title {
@@ -463,6 +500,14 @@ article.active {
 .timeline-section {
   max-width: 800px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.9s, transform 0.6s ease 0.9s;
+}
+
+.timeline-section.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .timeline-list {
@@ -636,6 +681,14 @@ article.active {
   background: var(--primary-bg);
   border-radius: 16px;
   border-left: 6px solid var(--accent-color);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 1.2s, transform 0.6s ease 1.2s;
+}
+
+.coursework-section-standalone.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .coursework-title-standalone {
@@ -922,6 +975,17 @@ article.active {
 /*-----------------------------------*\
   #PROJECTS
 \*-----------------------------------*/
+
+.projects-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.projects-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .filter-list {
   display: flex;
@@ -1250,6 +1314,17 @@ article.active {
   #HOBBIES
 \*-----------------------------------*/
 
+.hobbies-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.hobbies-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hobbies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1302,6 +1377,14 @@ article.active {
   gap: 60px;
   max-width: 900px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.contact-content.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-info-section h3 {
@@ -1512,7 +1595,7 @@ textarea.form-input {
   }
   
   .main-content {
-    padding-top: 120px;
+    padding-top: 40px;
   }
 }
 
