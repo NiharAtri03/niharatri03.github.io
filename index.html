@@ -262,7 +262,7 @@ body.dark-mode .sun-icon { opacity: 0; }
 \*-----------------------------------*/
 
 .main-content {
-  padding-top: 70px;
+  padding-top: 50px;
   min-height: 100vh;
 }
 
@@ -466,7 +466,8 @@ article.active {
 .page-title {
   font-size: var(--fs-hero);
   font-weight: var(--fw-600);
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -726,7 +727,7 @@ article.active {
   font-weight: var(--fw-500);
   color: var(--text-primary);
   margin-bottom: 48px;
-  margin-top: 60px;
+  margin-top: 20px;
   position: relative;
   padding-bottom: 16px;
   text-align: center;
@@ -881,16 +882,22 @@ article.active {
   .timeline-section {
     margin-bottom: 60px;
   }
+  
+  .university-logo {
+    width: 64px;
+    height: 64px;
+    padding: 6px;
+  }
 }
 
 /* Enhanced Logo Styling */
 .university-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
   object-fit: contain;
   background: white;
-  padding: 4px;
+  padding: 8px;
   border: 2px solid var(--border-color);
   transition: all var(--transition-1);
 }
@@ -1778,6 +1785,7 @@ textarea.form-input {
     <article class="experience" data-page="experience">
 
       <div class="page-container">
+        <h2 class="page-title">Experience</h2>
         <h3 class="section-subtitle" style="text-align: center;">Professional Experience</h3>
 
         <section class="timeline-section">
@@ -1973,7 +1981,7 @@ textarea.form-input {
                 <span class="timeline-date">August 2023 — May 2025</span>
               </div>
               <p class="timeline-text">
-                •	Helped develop and grade weekly homeworks on data science, data mining, and machine learning 
+                •	Helped develop and grade weekly homeworks on data science, data mining, and machine learning <br>
                 •	Hosted weekly office hours/answered student questions on Piazza to help review concepts and debug code
               </p>           
               </p>
