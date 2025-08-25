@@ -200,16 +200,25 @@ function animatePageContent(page) {
   const aboutContent = page.querySelector('.about-content');
   const experienceNavSidebar = page.querySelector('.experience-nav-sidebar');
   
-  // Reset all elements to initial state
-  const allElements = [...skillsItems, ...timelineItems, ...hobbyCards, ...projectItems, ...courseworkCategories, profileSection, aboutContent, experienceNavSidebar].filter(Boolean);
-  allElements.forEach((element) => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'none';
-  });
+  // Check if this page has already been animated (to avoid flash effect)
+  const hasBeenAnimated = page.dataset.animated === 'true';
+  
+  if (!hasBeenAnimated) {
+    // First time visiting this page - reset all elements to initial state
+    const allElements = [...skillsItems, ...timelineItems, ...hobbyCards, ...projectItems, ...courseworkCategories, profileSection, aboutContent, experienceNavSidebar].filter(Boolean);
+    allElements.forEach((element) => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = 'none';
+    });
+    
+    // Mark page as animated
+    page.dataset.animated = 'true';
+  }
   
   // Animate ALL elements simultaneously after a brief delay
   setTimeout(() => {
+    const allElements = [...skillsItems, ...timelineItems, ...hobbyCards, ...projectItems, ...courseworkCategories, profileSection, aboutContent, experienceNavSidebar].filter(Boolean);
     allElements.forEach((element) => {
       element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
       element.style.opacity = '1';
@@ -253,6 +262,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Animate the initially active page (About Me)
   const activePage = document.querySelector('[data-page].active');
   if (activePage) {
+    // Mark the initial page as animated
+    activePage.dataset.animated = 'true';
     setTimeout(() => {
       animatePageContent(activePage);
     }, 500); // Start animation after typewriter effect begins
