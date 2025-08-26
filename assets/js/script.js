@@ -306,7 +306,7 @@ const projectData = {
     github: 'https://docs.google.com/presentation/d/1HreWP0Z-ZPmHmlTcjcmTvY_vENw6M6Agfcdsa2x1iT8/edit?usp=sharing'
   },
   'Text Summarizer': {
-    description: 'Built a text summarizer that uses natural language processing to generate concise and coheren summaries.',
+    description: 'Built a text summarizer that uses natural language processing to generate concise and coherent summaries.',
     technologies: ['Python', 'Pandas', 'spaCy', 'NLTK', 'Streamlit'],
   },
   'My GPT': {
